@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Olga Korenkova — Design Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#B98A6A;
+      --dark:#0F1724;
+      --muted:#6B7280;
+      --max-width:1100px;
+    }
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.45;color:var(--dark);margin:0;background:#fff}
+    a{color:inherit;text-decoration:none}
+    header{padding:28px 20px;border-bottom:1px solid #f1f1f1}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+    .brand{display:flex;gap:18px;align-items:center}
+    .logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--dark)}
+    nav{margin-left:auto}
+    nav a{margin-left:18px;color:var(--muted);font-weight:600}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;padding:64px 0}
+    .hero-inner{display:flex;flex-direction:column;gap:20px}
+    .eyebrow{letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700}
+    h1{font-family:'Playfair Display',serif;font-size:40px;margin:0;line-height:1.02}
+    p.lead{color:var(--muted);max-width:720px}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 18px;border-radius:10px;font-weight:700;cursor:pointer}
+    .btn-primary{background:var(--accent);color:#fff;border:none}
+    .btn-ghost{background:#fff;border:1px solid #e6e6e6;color:var(--dark)}
+
+    .hero-image{border-radius:14px;overflow:hidden;min-height:320px;background:linear-gradient(180deg,#f7f5f2,#fff);display:flex;align-items:center;justify-content:center}
+    .hero-image img{width:100%;height:100%;object-fit:cover}
+
+    /* Services */
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:48px 0}
+    .card{padding:20px;border-radius:12px;background:#fff;border:1px solid #f3f3f3}
+    .card h3{margin:8px 0 0}
+    .muted{color:var(--muted)}
+
+    /* Portfolio */
+    .portfolio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .portfolio img{width:100%;height:220px;object-fit:cover;border-radius:8px}
+
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1fr 360px;gap:28px;margin:48px 0}
+    form{display:flex;flex-direction:column;gap:12px}
+    input,textarea{padding:12px;border-radius:8px;border:1px solid #e6e6e6;font-size:14px}
+
+    footer{padding:28px 0;border-top:1px solid #f1f1f1;margin-top:48px}
+
+    @media (max-width:900px){
+      .grid-3{grid-template-columns:1fr}
+      .portfolio{grid-template-columns:repeat(2,1fr)}
+      .contact{grid-template-columns:1fr}
+      h1{font-size:32px}
+    }
+    @media (max-width:520px){
+      .portfolio{grid-template-columns:1fr}
+      nav{display:none}
+      header{padding:18px 12px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="display:flex;align-items:center">
+      <div class="brand">
+        <div class="logo">Olga Korenkova
+        </div>
+        <div class="muted">Design Studio</div>
+      </div>
+      <nav>
+        <a href="#about">О нас</a>
+        <a href="#services">Услуги</a>
+        <a href="#portfolio">Портфолио</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="eyebrow">Interior + Styling</div>
+        <h1>Создаю светлые, уютные интерьеры для современных семей</h1>
+        <p class="lead">Полный цикл дизайна интерьера: от первоначальной концепции до авторского надзора. Индивидуальные решения и продуманные детали — чтобы ваш дом работал для жизни.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contact">Получить консультацию</a>
+          <a class="btn btn-ghost" href="#portfolio">Посмотреть портфолио</a>
+        </div>
+      </div>
+      <div class="hero-image" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1505691723518-36a1c3e8d5b0?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Interior sample">
+      </div>
+    </section>
+
+    <section id="services">
+      <h2>Услуги</h2>
+      <div class="grid-3">
+        <div class="card">
+          <strong>Дизайн интерьера</strong>
+          <h3>Полный дизайн проект</h3>
+          <p class="muted">Планировка, 3D визуализации, подбор материалов и мебели.</p>
+        </div>
+        <div class="card">
+          <strong>Авторский надзор</strong>
+          <h3>Контроль реализации</h3>
+          <p class="muted">Контроль работ на объекте и взаимодействие с подрядчиками.</p>
+        </div>
+        <div class="card">
+          <strong>Стадия ремонта</strong>
+          <h3>Рабочая документация</h3>
+          <p class="muted">Четкие чертежи и спецификации для строителей и подрядчиков.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <h2>Портфолио</h2>
+      <div class="portfolio">
+        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="project 1">
+        <img src="https://images.unsplash.com/photo-1505691723518-36a1c3e8d5b0?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="project 2">
+        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="project 3">
+        <img src="https://images.unsplash.com/photo-1472220625704-91e1462799b2?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="project 4">
+        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="project 5">
+        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="project 6">
+      </div>
+    </section>
+
+    <section id="about" style="margin-top:48px">
+      <h2>О студии</h2>
+      <p class="muted">Студия под руководством Ольги Коренковой — сочетание функциональности и эстетики. Мы делаем пространства, в которых хочется жить.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Контакты</h2>
+      <div class="contact">
+        <div>
+          <p class="muted">Оставьте заявку — мы свяжемся в течение 2 рабочих дней.</p>
+          <ul class="muted">
+            <li>Телефон: +7 (999) 000-00-00</li>
+            <li>Email: hello@olkastudio.ru</li>
+            <li>Город: Краснодар</li>
+          </ul>
+        </div>
+        <form onsubmit="submitForm(event)">
+          <input type="text" name="name" placeholder="Ваше имя" required>
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="text" name="phone" placeholder="Телефон">
+          <textarea name="message" rows="4" placeholder="Сообщение"></textarea>
+          <button class="btn btn-primary" type="submit">Отправить</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <div class="muted">© 2025 Olga Korenkova Design Studio</div>
+        <div class="muted">Instagram • Behance • WhatsApp</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function submitForm(e){
+      e.preventDefault();
+      alert('Спасибо! Ваша заявка отправлена (демо).');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
