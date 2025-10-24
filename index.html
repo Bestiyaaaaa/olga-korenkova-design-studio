@@ -1,182 +1,529 @@
+// Проект: Landing + Admin — Ольга Коренковова (React)
+// Файлы и инструкции внутри документа. 
+
+/*
+README / Инструкция
+
+Это готовый демонстрационный проект React (Vite). Включены:
+- Одностраничный лендинг по структуре заказчика.
+- Админ-панель для редактирования всех текстовых блоков, загрузки изображений и видео.
+- Базовый редактор изображений (масштаб, поворот, яркость, градация серого) на canvas.
+- Сохранение данных в localStorage (демонстрационный режим).
+- Шрифты: Great Vibes (заголовки) и Manrope (текст) подключены через Google Fonts.
+
+Запуск в VS Code:
+1. Установите Node.js (если ещё не установлен).
+2. Скопируйте структуру файлов и содержимое (файлы ниже) в папку проекта.
+3. Выполните `npm install`.
+4. Запустите `npm run dev`.
+5. Откройте URL, который покажет Vite (обычно http://localhost:5173).
+
+Demo-пароль для админки: admin123
+*/
+
+/*
+package.json
+*/
+{
+  "name": "korenkovova-landing",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.1",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "vite": "^5.0.0"
+  }
+}
+
+/*
+index.html
+*/
 <!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Olga Korenkova — Design Studio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --accent:#B98A6A;
-      --dark:#0F1724;
-      --muted:#6B7280;
-      --max-width:1100px;
-    }
-    *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.45;color:var(--dark);margin:0;background:#fff}
-    a{color:inherit;text-decoration:none}
-    header{padding:28px 20px;border-bottom:1px solid #f1f1f1}
-    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
-    .brand{display:flex;gap:18px;align-items:center}
-    .logo{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--dark)}
-    nav{margin-left:auto}
-    nav a{margin-left:18px;color:var(--muted);font-weight:600}
-
-    /* HERO */
-    .hero{display:grid;grid-template-columns:1fr;gap:24px;align-items:center;padding:64px 0}
-    .hero-inner{display:flex;flex-direction:column;gap:20px}
-    .eyebrow{letter-spacing:2px;text-transform:uppercase;color:var(--muted);font-weight:700}
-    h1{font-family:'Playfair Display',serif;font-size:40px;margin:0;line-height:1.02}
-    p.lead{color:var(--muted);max-width:720px}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{padding:12px 18px;border-radius:10px;font-weight:700;cursor:pointer}
-    .btn-primary{background:var(--accent);color:#fff;border:none}
-    .btn-ghost{background:#fff;border:1px solid #e6e6e6;color:var(--dark)}
-
-    .hero-image{border-radius:14px;overflow:hidden;min-height:320px;background:linear-gradient(180deg,#f7f5f2,#fff);display:flex;align-items:center;justify-content:center}
-    .hero-image img{width:100%;height:100%;object-fit:cover}
-
-    /* Services */
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:48px 0}
-    .card{padding:20px;border-radius:12px;background:#fff;border:1px solid #f3f3f3}
-    .card h3{margin:8px 0 0}
-    .muted{color:var(--muted)}
-
-    /* Portfolio */
-    .portfolio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-    .portfolio img{width:100%;height:220px;object-fit:cover;border-radius:8px}
-
-    /* Contact */
-    .contact{display:grid;grid-template-columns:1fr 360px;gap:28px;margin:48px 0}
-    form{display:flex;flex-direction:column;gap:12px}
-    input,textarea{padding:12px;border-radius:8px;border:1px solid #e6e6e6;font-size:14px}
-
-    footer{padding:28px 0;border-top:1px solid #f1f1f1;margin-top:48px}
-
-    @media (max-width:900px){
-      .grid-3{grid-template-columns:1fr}
-      .portfolio{grid-template-columns:repeat(2,1fr)}
-      .contact{grid-template-columns:1fr}
-      h1{font-size:32px}
-    }
-    @media (max-width:520px){
-      .portfolio{grid-template-columns:1fr}
-      nav{display:none}
-      header{padding:18px 12px}
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="container" style="display:flex;align-items:center">
-      <div class="brand">
-        <div class="logo">Olga Korenkova
-        </div>
-        <div class="muted">Design Studio</div>
-      </div>
-      <nav>
-        <a href="#about">О нас</a>
-        <a href="#services">Услуги</a>
-        <a href="#portfolio">Портфолио</a>
-        <a href="#contact">Контакты</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="hero" id="top">
-      <div class="hero-inner">
-        <div class="eyebrow">Interior + Styling</div>
-        <h1>Создаю светлые, уютные интерьеры для современных семей</h1>
-        <p class="lead">Полный цикл дизайна интерьера: от первоначальной концепции до авторского надзора. Индивидуальные решения и продуманные детали — чтобы ваш дом работал для жизни.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#contact">Получить консультацию</a>
-          <a class="btn btn-ghost" href="#portfolio">Посмотреть портфолио</a>
-        </div>
-      </div>
-      <div class="hero-image" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1505691723518-36a1c3e8d5b0?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Interior sample">
-      </div>
-    </section>
-
-    <section id="services">
-      <h2>Услуги</h2>
-      <div class="grid-3">
-        <div class="card">
-          <strong>Дизайн интерьера</strong>
-          <h3>Полный дизайн проект</h3>
-          <p class="muted">Планировка, 3D визуализации, подбор материалов и мебели.</p>
-        </div>
-        <div class="card">
-          <strong>Авторский надзор</strong>
-          <h3>Контроль реализации</h3>
-          <p class="muted">Контроль работ на объекте и взаимодействие с подрядчиками.</p>
-        </div>
-        <div class="card">
-          <strong>Стадия ремонта</strong>
-          <h3>Рабочая документация</h3>
-          <p class="muted">Четкие чертежи и спецификации для строителей и подрядчиков.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="portfolio">
-      <h2>Портфолио</h2>
-      <div class="portfolio">
-        <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="project 1">
-        <img src="https://images.unsplash.com/photo-1505691723518-36a1c3e8d5b0?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="project 2">
-        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="project 3">
-        <img src="https://images.unsplash.com/photo-1472220625704-91e1462799b2?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="project 4">
-        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="project 5">
-        <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="project 6">
-      </div>
-    </section>
-
-    <section id="about" style="margin-top:48px">
-      <h2>О студии</h2>
-      <p class="muted">Студия под руководством Ольги Коренковой — сочетание функциональности и эстетики. Мы делаем пространства, в которых хочется жить.</p>
-    </section>
-
-    <section id="contact">
-      <h2>Контакты</h2>
-      <div class="contact">
-        <div>
-          <p class="muted">Оставьте заявку — мы свяжемся в течение 2 рабочих дней.</p>
-          <ul class="muted">
-            <li>Телефон: +7 (999) 000-00-00</li>
-            <li>Email: hello@olkastudio.ru</li>
-            <li>Город: Краснодар</li>
-          </ul>
-        </div>
-        <form onsubmit="submitForm(event)">
-          <input type="text" name="name" placeholder="Ваше имя" required>
-          <input type="email" name="email" placeholder="Email" required>
-          <input type="text" name="phone" placeholder="Телефон">
-          <textarea name="message" rows="4" placeholder="Сообщение"></textarea>
-          <button class="btn btn-primary" type="submit">Отправить</button>
-        </form>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      <div style="display:flex;align-items:center;justify-content:space-between">
-        <div class="muted">© 2025 Olga Korenkova Design Studio</div>
-        <div class="muted">Instagram • Behance • WhatsApp</div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    function submitForm(e){
-      e.preventDefault();
-      alert('Спасибо! Ваша заявка отправлена (демо).');
-      e.target.reset();
-    }
-  </script>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ольга Коренковова — Дизайн интерьеров</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
+
+/*
+src/main.jsx
+*/
+import React from 'react'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router-dom'
+import App from './App'
+import './styles.css'
+
+createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+)
+
+/*
+src/App.jsx
+*/
+import React, { useState, useEffect, useRef } from 'react'
+import { Routes, Route, Link, useNavigate } from 'react-router-dom'
+import Site from './components/Site'
+import Admin from './components/Admin'
+
+const STORAGE_KEY = 'korenkovova_site_data_v1'
+
+const defaultData = {
+  site: {
+    title: 'Комфорт в каждом штрихе',
+    subtitle: 'Создаю интерьеры, в которых хочется жить, отдыхать и вдохновляться каждый день.',
+    heroImg: '/placeholders/hero.jpg',
+    about: {
+      photo: '/placeholders/author.jpg',
+      text: 'Я — Ольга Коренковова, дизайнер интерьеров с более чем 8-летним опытом. Работала с частными клиентами и небольшими девелоперскими проектами.'
+    },
+    services: [
+      'Разработка дизайн-проекта',
+      'Подбор мебели, материалов и декора',
+      '3D-визуализация будущего интерьера',
+      'Решение сложных планировочных задач',
+      'Авторский надзор на всех этапах реализации проекта'
+    ],
+    advantages: [
+      {title: 'Внимание к деталям', text: 'Нюансы создают атмосферу.'},
+      {title: 'Индивидуальный подход', text: 'Каждый интерьер уникален.'},
+      {title: 'Прозрачность', text: 'Бюджет и сроки под контролем.'},
+      {title: 'Полный цикл', text: 'От идеи до реализации.'}
+    ],
+    portfolio: [],
+    models: [],
+    clientsText: 'Интерьер — это не только стены и мебель. Это эмоции, уют и отражение вашей личности.',
+    contacts: {
+      phone: '+7 (___) ___-__-__',
+      email: 'design@korenkovova.ru',
+      instagram: 'https://instagram.com/'
+    }
+  }
+}
+
+function App(){
+  const [data, setData] = useState(()=>{
+    const raw = localStorage.getItem(STORAGE_KEY)
+    return raw ? JSON.parse(raw) : defaultData
+  })
+
+  useEffect(()=>{
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+  },[data])
+
+  return (
+    <Routes>
+      <Route path="/" element={<Site data={data.site} />} />
+      <Route path="/admin" element={<Admin data={data.site} setData={(site)=>setData({site})} />} />
+    </Routes>
+  )
+}
+
+export default App
+
+/*
+src/styles.css
+*/
+:root{
+  --bg: #ffffff;
+  --accent: #FF3CAC;
+  --text: #333333;
+  --muted: #777777;
+}
+*{box-sizing:border-box}
+body{font-family: 'Manrope', system-ui, sans-serif; margin:0; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased}
+header{position:sticky; top:0; backdrop-filter: blur(6px); background:rgba(255,255,255,0.7); border-bottom:1px solid rgba(0,0,0,0.04); z-index:40}
+.container{max-width:1100px; margin:0 auto; padding:24px}
+.nav{display:flex; align-items:center; justify-content:space-between}
+.logo{font-family: 'Great Vibes', cursive; font-size:28px; color:var(--accent)}
+.navlinks{display:flex; gap:18px}
+.navlinks a{color:var(--text); text-decoration:none; font-weight:600}
+.hero{display:flex; gap:32px; align-items:center; padding:48px 0}
+.hero-left{flex:1}
+.hero h1{font-family: 'Great Vibes', cursive; font-size:56px; margin:0}
+.hero p{color:var(--muted); font-size:18px}
+.btn{background:var(--accent); color:white; padding:12px 20px; border-radius:12px; border:none; cursor:pointer; font-weight:700; box-shadow:0 6px 18px rgba(255,60,172,0.12)}
+.hero-right{flex:1}
+.img-frame{border-radius:12px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.06)}
+.section{padding:48px 0}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px}
+.card{background:white; border-radius:12px; padding:18px; box-shadow:0 8px 24px rgba(0,0,0,0.04)}
+.services li{margin-bottom:12px}
+.gallery{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px}
+.gallery img{width:100%; height:160px; object-fit:cover; border-radius:8px}
+.footer{padding:24px 0; border-top:1px solid rgba(0,0,0,0.04)}
+.admin-link{background:transparent; border:2px solid var(--accent); color:var(--accent); padding:8px 14px; border-radius:10px}
+@media (max-width:800px){
+  .hero{flex-direction:column}
+  .hero h1{font-size:40px}
+}
+
+/*
+src/components/Site.jsx
+*/
+import React from 'react'
+import { Link } from 'react-router-dom'
+
+export default function Site({data}){
+  return (
+    <div>
+      <header>
+        <div className="container nav">
+          <div className="logo">Ольга Коренковова</div>
+          <nav className="navlinks">
+            <a href="#about">Обо мне</a>
+            <a href="#services">Услуги</a>
+            <a href="#why">Почему со мной</a>
+            <a href="#portfolio">Портфолио</a>
+            <a href="#clients">Клиентам</a>
+            <a href="#contacts">Контакты</a>
+            <Link to="/admin" className="admin-link">Admin</Link>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <section className="hero container">
+          <div className="hero-left">
+            <h1>{data.title}</h1>
+            <p>{data.subtitle}</p>
+            <div style={{marginTop:18}}>
+              <a className="btn" href="#contacts">Оставить заявку</a>
+            </div>
+          </div>
+          <div className="hero-right">
+            <div className="img-frame">
+              <img src={data.heroImg} alt="hero" style={{width:'100%', height:360, objectFit:'cover'}} />
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="section container">
+          <div style={{display:'flex', gap:20, alignItems:'center', flexWrap:'wrap'}}>
+            <img src={data.about.photo} alt="author" style={{width:180, height:220, objectFit:'cover', borderRadius:12}} />
+            <div>
+              <h2>Обо мне</h2>
+              <p style={{maxWidth:700}}>{data.about.text}</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="services" className="section container">
+          <h2>Что я делаю</h2>
+          <ul className="services">
+            {data.services.map((s,i)=>(<li key={i}>• {s}</li>))}
+          </ul>
+        </section>
+
+        <section id="why" className="section container">
+          <h2>Почему со мной комфортно</h2>
+          <div className="grid">
+            {data.advantages.map((a,idx)=>(
+              <div className="card" key={idx}>
+                <h3>{a.title}</h3>
+                <p style={{color:'#666'}}>{a.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="portfolio" className="section container">
+          <h2>Портфолио</h2>
+          <div className="gallery">
+            {data.portfolio.length? data.portfolio.map(item=> (
+              item.type==='video' ? (
+                <video key={item.id} src={item.src} controls style={{width:'100%', height:160, objectFit:'cover', borderRadius:8}} />
+              ) : (
+                <img key={item.id} src={item.src} alt={item.title} />
+              )
+            )) : <p>Портфолио пока пусто — загрузите работы в админке.</p>}
+          </div>
+        </section>
+
+        <section id="models" className="section container">
+          <h2>Моделирование мебели</h2>
+          <div className="gallery">
+            {data.models.length? data.models.map(item=> (
+              <img key={item.id} src={item.src} alt={item.title} />
+            )) : <p>Галерея 3D-моделей пуста — загрузите рендеры в админке.</p>}
+          </div>
+        </section>
+
+        <section id="clients" className="section container">
+          <h2>Для клиентов</h2>
+          <p style={{maxWidth:800}}>{data.clientsText}</p>
+        </section>
+
+        <section id="contacts" className="section container">
+          <h2>Контакты</h2>
+          <p>Телефон: {data.contacts.phone}</p>
+          <p>Email: {data.contacts.email}</p>
+          <p>Instagram: <a href={data.contacts.instagram}>{data.contacts.instagram}</a></p>
+        </section>
+
+        <footer className="footer container">
+          <small>© 2025 Ольга Коренковова. Все права защищены.</small>
+        </footer>
+      </main>
+    </div>
+  )
+}
+
+/*
+src/components/Admin.jsx
+*/
+import React, { useState, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
+import ImageEditor from './ImageEditor'
+
+export default function Admin({data, setData}){
+  const [auth, setAuth] = useState(false)
+  const [pass, setPass] = useState('')
+  const [site, setSite] = useState(data)
+  const navigate = useNavigate()
+  const fileInputRef = useRef()
+
+  function handleLogin(e){
+    e.preventDefault()
+    // demo password: admin123
+    if(pass === 'admin123') setAuth(true)
+    else alert('Неверный пароль. Попробуйте admin123')
+  }
+
+  function saveAll(){
+    setData(site)
+    alert('Сайт обновлён и сохранён в localStorage')
+    navigate('/')
+  }
+
+  function addPortfolio(file){
+    const id = Date.now().toString()
+    const reader = new FileReader()
+    reader.onload = ()=>{
+      const arr = site.portfolio.concat([{id, src:reader.result, title: file.name}])
+      setSite({...site, portfolio:arr})
+    }
+    reader.readAsDataURL(file)
+  }
+
+  function addModel(file){
+    const id = Date.now().toString()
+    const reader = new FileReader()
+    reader.onload = ()=>{
+      const arr = site.models.concat([{id, src:reader.result, title: file.name}])
+      setSite({...site, models:arr})
+    }
+    reader.readAsDataURL(file)
+  }
+
+  if(!auth){
+    return <div className="container" style={{padding:40}}>
+      <h2>Вход в админку</h2>
+      <form onSubmit={handleLogin} style={{maxWidth:340}}>
+        <input placeholder="Пароль" value={pass} onChange={e=>setPass(e.target.value)} style={{width:'100%', padding:10, marginBottom:10}} />
+        <button className="btn" type="submit">Войти</button>
+      </form>
+      <p style={{marginTop:12}}>Demo-пароль: <b>admin123</b></p>
+    </div>
+  }
+
+  return (
+    <div className="container" style={{padding:24}}>
+      <h2>Админ-панель</h2>
+
+      <section className="card" style={{marginBottom:12}}>
+        <h3>Hero</h3>
+        <input value={site.title} onChange={e=>setSite({...site, title:e.target.value})} style={{width:'100%', padding:8, marginBottom:8}} />
+        <input value={site.subtitle} onChange={e=>setSite({...site, subtitle:e.target.value})} style={{width:'100%', padding:8}} />
+        <p>Изображение героя</p>
+        <ImageEditor src={site.heroImg} onSave={(blobUrl)=>setSite({...site, heroImg:blobUrl})} />
+      </section>
+
+      <section className="card" style={{marginBottom:12}}>
+        <h3>Обо мне</h3>
+        <textarea value={site.about.text} onChange={e=>setSite({...site, about:{...site.about, text:e.target.value}})} style={{width:'100%', padding:8, minHeight:80}} />
+        <p>Фото</p>
+        <ImageEditor src={site.about.photo} onSave={(blobUrl)=>setSite({...site, about:{...site.about, photo:blobUrl}})} />
+      </section>
+
+      <section className="card" style={{marginBottom:12}}>
+        <h3>Услуги</h3>
+        {site.services.map((s,i)=> (
+          <div key={i} style={{display:'flex', gap:8, marginBottom:8}}>
+            <input value={s} onChange={e=>{const arr=site.services.slice(); arr[i]=e.target.value; setSite({...site, services:arr})}} style={{flex:1}} />
+            <button onClick={()=>{const arr=site.services.filter((_,idx)=>idx!==i); setSite({...site, services:arr})}}>Удалить</button>
+          </div>
+        ))}
+        <button onClick={()=>setSite({...site, services:site.services.concat(['Новая услуга'])})}>Добавить услугу</button>
+      </section>
+
+      <section className="card" style={{marginBottom:12}}>
+        <h3>Преимущества</h3>
+        {site.advantages.map((a,i)=> (
+          <div key={i} style={{marginBottom:8}}>
+            <input value={a.title} onChange={e=>{const arr=site.advantages.slice(); arr[i].title=e.target.value; setSite({...site, advantages:arr})}} style={{width:'100%', marginBottom:4}} />
+            <input value={a.text} onChange={e=>{const arr=site.advantages.slice(); arr[i].text=e.target.value; setSite({...site, advantages:arr})}} style={{width:'100%'}} />
+          </div>
+        ))}
+        <button onClick={()=>setSite({...site, advantages:site.advantages.concat({title:'Новое', text:'Текст'})})}>Добавить</button>
+      </section>
+
+      <section className="card" style={{marginBottom:12}}>
+        <h3>Портфолио</h3>
+        <input type="file" accept="image/*" onChange={e=>addPortfolio(e.target.files[0])} />
+        <div className="gallery" style={{marginTop:12}}>
+          {site.portfolio.map(p=> (
+            <div key={p.id} style={{position:'relative'}}>
+              {p.type==='video' ? (
+                <video src={p.src} controls style={{width:180, height:120, objectFit:'cover', borderRadius:8}} />
+              ) : (
+                <img src={p.src} style={{width:180, height:120, objectFit:'cover', borderRadius:8}} />
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="card" style={{marginBottom:12}}>
+        <h3>3D-модели</h3>
+        <input type="file" accept="image/*" onChange={e=>addModel(e.target.files[0])} />
+        <div className="gallery" style={{marginTop:12}}>
+          {site.models.map(p=> (
+            <img key={p.id} src={p.src} style={{width:180, height:120, objectFit:'cover', borderRadius:8}} />
+          ))}
+        </div>
+      </section>
+
+      <section className="card" style={{marginBottom:12}}>
+        <h3>Видео</h3>
+        <input type="file" accept="video/*" onChange={e=>{
+          const file = e.target.files[0]
+          const url = URL.createObjectURL(file)
+          const arr = site.portfolio.concat([{id:Date.now().toString(), src:url, title:file.name, type:'video'}])
+          setSite({...site, portfolio:arr})
+        }} />
+        <p>Загруженные видео появятся в портфолио как превьюы.</p>
+      </section>
+
+      <section style={{display:'flex', gap:12}}>
+        <button className="btn" onClick={saveAll}>Сохранить и опубликовать</button>
+        <button onClick={()=>{localStorage.removeItem('korenkovova_site_data_v1'); alert('Данные удалены из localStorage');}}>Сбросить</button>
+      </section>
+
+    </div>
+  )
+}
+
+/*
+src/components/ImageEditor.jsx
+*/
+import React, { useRef, useState, useEffect } from 'react'
+
+export default function ImageEditor({src, onSave}){
+  const canvasRef = useRef()
+  const imgRef = useRef()
+  const [imageSrc, setImageSrc] = useState(src)
+  const [scale, setScale] = useState(1)
+  const [rotate, setRotate] = useState(0)
+  const [brightness, setBrightness] = useState(100)
+  const [grayscale, setGrayscale] = useState(0)
+
+  useEffect(()=>{
+    setImageSrc(src)
+  },[src])
+
+  useEffect(()=>{
+    const canvas = canvasRef.current
+    const ctx = canvas.getContext('2d')
+    const img = imgRef.current
+    if(!img) return
+    const w = img.naturalWidth
+    const h = img.naturalHeight
+    const cw = Math.min(w, 900)
+    const ch = Math.round(h * (cw / w))
+    canvas.width = cw
+    canvas.height = ch
+    ctx.save()
+    ctx.clearRect(0,0,cw,ch)
+    ctx.translate(cw/2, ch/2)
+    ctx.rotate((rotate*Math.PI)/180)
+    ctx.scale(scale, scale)
+    ctx.filter = `brightness(${brightness}%) grayscale(${grayscale}%)`
+    ctx.drawImage(img, -cw/2, -ch/2, cw, ch)
+    ctx.restore()
+  },[imageSrc, scale, rotate, brightness, grayscale])
+
+  function handleFile(e){
+    const file = e.target.files[0]
+    if(!file) return
+    const reader = new FileReader()
+    reader.onload = ()=> setImageSrc(reader.result)
+    reader.readAsDataURL(file)
+  }
+
+  function handleSave(){
+    const canvas = canvasRef.current
+    const dataUrl = canvas.toDataURL('image/jpeg', 0.9)
+    onSave(dataUrl)
+    alert('Изображение сохранено')
+  }
+
+  return (
+    <div>
+      <div style={{display:'flex', gap:12, alignItems:'center'}}>
+        <input type="file" accept="image/*" onChange={handleFile} />
+        <button onClick={handleSave} className="btn">Сохранить</button>
+      </div>
+      <div style={{display:'flex', gap:12, marginTop:12}}>
+        <div>
+          <canvas ref={canvasRef} style={{borderRadius:8, maxWidth:360, boxShadow:'0 8px 20px rgba(0,0,0,0.06)'}} />
+          <img ref={imgRef} src={imageSrc} alt="src" style={{display:'none'}} onLoad={()=>{ /* trigger redraw */ }} />
+        </div>
+        <div style={{minWidth:220}}>
+          <label>Масштаб {scale}</label>
+          <input type="range" min="0.3" max="2" step="0.1" value={scale} onChange={e=>setScale(e.target.value)} />
+          <label>Поворот {rotate}°</label>
+          <input type="range" min="-180" max="180" step="1" value={rotate} onChange={e=>setRotate(e.target.value)} />
+          <label>Яркость {brightness}%</label>
+          <input type="range" min="30" max="160" step="1" value={brightness} onChange={e=>setBrightness(e.target.value)} />
+          <label>Оттенок серого {grayscale}%</label>
+          <input type="range" min="0" max="100" step="1" value={grayscale} onChange={e=>setGrayscale(e.target.value)} />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/*
+public/placeholders
+- добавьте hero.jpg и author.jpg в public/placeholders
+*/
+
+/*
+Дополнения и заметки:
+- Сейчас проект хранит данные в localStorage. Для реального использования подключите бэкенд и хранение файлов на сервере или S3/Cloud.
+- Можно интегрировать систему авторизации (JWT) для админки.
+- Видео добавляются в портфолио и показываются через тег <video> (используется createObjectURL для локальной демонстрации).
+*/
