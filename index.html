@@ -1246,7 +1246,7 @@
                         </svg>
                     </div>
                     <h3 data-editable="benefit-3-title">Честность</h3>
-                    <p data-editable="benefit-3-text">Прозрачная работа на всех этапах, никаких скрытых платежей</p>
+                    <p data-editable="benefit-3-text">Прозрачная работа на всех этапас, никаких скрытых платежей</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
@@ -1936,6 +1936,7 @@
         // Data storage and management
         let siteData = {};
         const ADMIN_PASSWORD = "admin123";
+        const MAX_VIDEO_SIZE = 10 * 1024 * 1024; // 10MB limit for videos
 
         // Video state management
         const videoStates = {
@@ -1947,14 +1948,15 @@
         // Initialize data from localStorage or set defaults
         function initializeData() {
             console.log("Initializing data...");
+            
+            // Load text data from localStorage
             const savedData = localStorage.getItem('siteData');
             
             if (savedData) {
                 try {
                     siteData = JSON.parse(savedData);
-                    console.log("Loaded data from localStorage:", siteData);
+                    console.log("Loaded text data from localStorage");
                     
-                    // Проверяем, есть ли данные в localStorage
                     if (Object.keys(siteData).length === 0) {
                         console.log("Empty data in localStorage, setting defaults");
                         setDefaultData();
@@ -1968,9 +1970,11 @@
                 setDefaultData();
             }
             
+            // Load video files from IndexedDB
+            loadVideosFromStorage();
+            
             applyDataToSite();
             loadDataToAdminForm();
-            initializeVideos();
         }
 
         function setDefaultData() {
@@ -2065,7 +2069,26 @@
                 'footer-phone': '+7 (928) 430-12-70'
             };
             
-            saveData();
+            saveTextData();
+        }
+
+        // Save text data to localStorage
+        function saveTextData() {
+            console.log("Saving text data to localStorage...");
+            try {
+                // Don't save large files to localStorage
+                const textData = {...siteData};
+                // Remove video file data from localStorage save
+                delete textData['video-1-file'];
+                delete textData['video-2-file'];
+                delete textData['video-3-file'];
+                
+                localStorage.setItem('siteData', JSON.stringify(textData));
+                console.log("Text data saved successfully");
+            } catch (e) {
+                console.error("Error saving text data to localStorage:", e);
+                alert('Ошибка сохранения данных! Возможно, превышен лимит хранилища.');
+            }
         }
 
         // Apply data to the site
@@ -2080,10 +2103,8 @@
                         element.src = siteData[key];
                         console.log(`Set image ${key} to:`, siteData[key]);
                     } else if (element.tagName === 'VIDEO') {
-                        if (siteData[key]) {
-                            element.src = siteData[key];
-                            console.log(`Set video ${key} to:`, siteData[key]);
-                        }
+                        // Video src will be set by loadVideosFromStorage
+                        console.log(`Video element ${key} found`);
                     } else {
                         element.textContent = siteData[key];
                         console.log(`Set text ${key} to:`, siteData[key]);
@@ -2097,12 +2118,9 @@
         // Initialize videos on page load
         function initializeVideos() {
             for (let i = 1; i <= 3; i++) {
-                const videoKey = `video-${i}-file`;
                 const videoElement = document.getElementById(`video-${i}`);
                 
-                if (videoElement && siteData[videoKey] && siteData[videoKey] !== '') {
-                    videoElement.src = siteData[videoKey];
-                    
+                if (videoElement) {
                     // Add event listeners for video controls
                     videoElement.addEventListener('timeupdate', () => updateProgress(i));
                     videoElement.addEventListener('loadedmetadata', () => {
@@ -2251,30 +2269,6 @@
                         console.log(`Set preview ${previewId} to:`, siteData[key]);
                     }
                 }
-                
-                // Handle video previews
-                if (key.includes('video-') && key.includes('-file')) {
-                    const videoNumber = key.split('-')[1];
-                    const previewId = `admin-video-${videoNumber}-preview`;
-                    const preview = document.getElementById(previewId);
-                    if (preview && siteData[key]) {
-                        preview.src = siteData[key];
-                        preview.style.display = 'block';
-                        console.log(`Set video preview ${previewId} to:`, siteData[key]);
-                    }
-                }
-            }
-        }
-
-        // Save data to localStorage
-        function saveData() {
-            console.log("Saving data to localStorage...", siteData);
-            try {
-                localStorage.setItem('siteData', JSON.stringify(siteData));
-                console.log("Data saved successfully");
-            } catch (e) {
-                console.error("Error saving data to localStorage:", e);
-                alert('Ошибка сохранения данных! Возможно, превышен лимит хранилища.');
             }
         }
 
@@ -2295,9 +2289,8 @@
             });
             
             // Save and apply
-            saveData();
+            saveTextData();
             applyDataToSite();
-            initializeVideos(); // Re-initialize videos to apply changes
             
             alert('Изменения сохранены!');
         }
@@ -2337,7 +2330,7 @@
                     }
                     
                     // Save data immediately
-                    saveData();
+                    saveTextData();
                     
                     alert('Изображение загружено и сохранено!');
                 };
@@ -2359,38 +2352,37 @@
             const file = input.files[0];
             
             if (file) {
-                // Check file size (limit to 50MB for videos)
-                if (file.size > 50 * 1024 * 1024) {
-                    alert('Файл слишком большой! Максимальный размер видео: 50MB');
+                // Check file size
+                if (file.size > MAX_VIDEO_SIZE) {
+                    alert(`Файл слишком большой! Максимальный размер видео: ${MAX_VIDEO_SIZE / 1024 / 1024}MB`);
                     return;
                 }
                 
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    console.log(`Video loaded for ${videoId}:`, e.target.result.substring(0, 100) + '...');
+                    console.log(`Video loaded for ${videoId}`);
                     
-                    // Update data
-                    const videoKey = `${videoId}-file`;
-                    siteData[videoKey] = e.target.result;
-                    
-                    // Update video element on site
-                    const videoElement = document.getElementById(videoId);
-                    if (videoElement) {
-                        videoElement.src = e.target.result;
-                    }
-                    
-                    // Update preview in admin panel
-                    const previewId = `admin-${videoId}-preview`;
-                    const preview = document.getElementById(previewId);
-                    if (preview) {
-                        preview.src = e.target.result;
-                        preview.style.display = 'block';
-                    }
-                    
-                    // Save data immediately
-                    saveData();
-                    
-                    alert('Видео загружено и сохранено!');
+                    // Store video in IndexedDB
+                    storeVideoInIndexedDB(videoId, e.target.result).then(() => {
+                        // Update video element on site
+                        const videoElement = document.getElementById(videoId);
+                        if (videoElement) {
+                            videoElement.src = e.target.result;
+                        }
+                        
+                        // Update preview in admin panel
+                        const previewId = `admin-${videoId}-preview`;
+                        const preview = document.getElementById(previewId);
+                        if (preview) {
+                            preview.src = e.target.result;
+                            preview.style.display = 'block';
+                        }
+                        
+                        alert('Видео загружено и сохранено!');
+                    }).catch(error => {
+                        console.error("Error storing video:", error);
+                        alert('Ошибка при сохранении видео!');
+                    });
                 };
                 
                 reader.onerror = function(e) {
@@ -2402,6 +2394,71 @@
             } else {
                 console.log("No file selected");
             }
+        }
+
+        // IndexedDB for video storage
+        function openDB() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open('VideoStorage', 1);
+                
+                request.onerror = () => reject(request.error);
+                request.onsuccess = () => resolve(request.result);
+                
+                request.onupgradeneeded = (event) => {
+                    const db = event.target.result;
+                    if (!db.objectStoreNames.contains('videos')) {
+                        db.createObjectStore('videos');
+                    }
+                };
+            });
+        }
+
+        function storeVideoInIndexedDB(key, videoData) {
+            return openDB().then(db => {
+                return new Promise((resolve, reject) => {
+                    const transaction = db.transaction(['videos'], 'readwrite');
+                    const store = transaction.objectStore('videos');
+                    const request = store.put(videoData, key);
+                    
+                    request.onerror = () => reject(request.error);
+                    request.onsuccess = () => resolve();
+                });
+            });
+        }
+
+        function getVideoFromIndexedDB(key) {
+            return openDB().then(db => {
+                return new Promise((resolve, reject) => {
+                    const transaction = db.transaction(['videos'], 'readonly');
+                    const store = transaction.objectStore('videos');
+                    const request = store.get(key);
+                    
+                    request.onerror = () => reject(request.error);
+                    request.onsuccess = () => resolve(request.result);
+                });
+            });
+        }
+
+        function loadVideosFromStorage() {
+            console.log("Loading videos from storage...");
+            
+            for (let i = 1; i <= 3; i++) {
+                const videoKey = `video-${i}`;
+                getVideoFromIndexedDB(videoKey).then(videoData => {
+                    if (videoData) {
+                        console.log(`Loaded video ${videoKey} from IndexedDB`);
+                        const videoElement = document.getElementById(videoKey);
+                        if (videoElement) {
+                            videoElement.src = videoData;
+                        }
+                    }
+                }).catch(error => {
+                    console.log(`No video found for ${videoKey} in IndexedDB`);
+                });
+            }
+            
+            // Initialize video controls after loading
+            setTimeout(initializeVideos, 500);
         }
 
         // Password functions
