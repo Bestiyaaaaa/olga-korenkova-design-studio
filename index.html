@@ -450,7 +450,7 @@
             font-family: 'Manrope', sans-serif;
         }
 
-        /* Video Section - FIXED */
+        /* Video Section */
         .video-section {
             background: linear-gradient(to bottom right, rgba(230, 30, 143, 0.03), #fafafa);
         }
@@ -556,11 +556,6 @@
             display: block;
         }
 
-        /* Фиксированный размер видео при воспроизведении */
-        .video-container.playing {
-            height: 300px !important;
-        }
-
         .video-card-content {
             padding: 1.5rem;
         }
@@ -578,84 +573,6 @@
             font-size: 0.875rem;
             font-family: 'Manrope', sans-serif;
             margin-bottom: 1rem;
-        }
-
-        /* Video controls */
-        .video-controls {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-            padding: 20px 15px 10px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .video-container.playing:hover .video-controls {
-            opacity: 1;
-        }
-
-        .progress-bar {
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 2px;
-            margin-bottom: 10px;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .progress {
-            height: 100%;
-            background: #e61e8f;
-            border-radius: 2px;
-            width: 0%;
-            transition: width 0.1s ease;
-        }
-
-        .control-buttons {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .control-left, .control-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .control-btn {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            transition: color 0.3s ease;
-        }
-
-        .control-btn:hover {
-            color: #e61e8f;
-        }
-
-        .volume-control {
-            width: 80px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 2px;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .volume-level {
-            height: 100%;
-            background: white;
-            border-radius: 2px;
-            width: 100%;
         }
 
         /* Manifesto */
@@ -908,21 +825,37 @@
             resize: vertical;
         }
 
-        .image-upload {
-            border: 2px dashed hsl(var(--border));
-            border-radius: 0.5rem;
+        .image-upload-info {
+            background: #f8f9fa;
             padding: 1rem;
-            text-align: center;
+            border-radius: 0.5rem;
             margin-bottom: 1rem;
-            cursor: pointer;
             font-family: 'Manrope', sans-serif;
             color: #6b6f76;
-            transition: all 0.3s;
+            font-size: 0.9rem;
         }
 
-        .image-upload:hover {
-            border-color: #e61e8f;
-            color: #e61e8f;
+        .external-link-input {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .external-link-input input {
+            flex: 1;
+        }
+
+        .test-image-btn {
+            background: #e61e8f;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .test-image-btn:hover {
+            background: #d41a7f;
         }
 
         .image-preview {
@@ -1051,16 +984,6 @@
                 padding: 0.4rem 0.8rem;
                 font-size: 0.8rem;
             }
-
-            .control-buttons {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .control-left, .control-right {
-                width: 100%;
-                justify-content: space-between;
-            }
         }
     </style>
 </head>
@@ -1106,7 +1029,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="src/assets/hero-kitchen.jpg" alt="Светлая современная кухня с розовыми акцентами" data-editable="hero-image">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Светлая современная кухня с розовыми акцентами" data-editable="hero-image">
                 </div>
             </div>
         </div>
@@ -1123,7 +1046,7 @@
                     <p data-editable="about-text-3">Верю, что хороший интерьер — это не только красиво, но и комфортно. Это пространство, которое поддерживает вашу жизнь и вдохновляет каждый день.</p>
                 </div>
                 <div class="about-image">
-                    <img src="src/assets/olga-portrait.jpg" alt="Ольга Коренкова - дизайнер интерьеров" data-editable="about-image">
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Ольга Коренкова - дизайнер интерьеров" data-editable="about-image">
                 </div>
             </div>
         </div>
@@ -1246,7 +1169,7 @@
                         </svg>
                     </div>
                     <h3 data-editable="benefit-3-title">Честность</h3>
-                    <p data-editable="benefit-3-text">Прозрачная работа на всех этапас, никаких скрытых платежей</p>
+                    <p data-editable="benefit-3-text">Прозрачная работа на всех этапах, никаких скрытых платежей</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
@@ -1269,21 +1192,21 @@
             <p class="section-subtitle" data-editable="portfolio-subtitle">Примеры реализованных проектов</p>
             <div class="portfolio-grid">
                 <div class="portfolio-card">
-                    <img src="src/assets/portfolio-1.jpg" alt="Проект 1" data-editable="portfolio-1-image">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Проект 1" data-editable="portfolio-1-image">
                     <div class="portfolio-card-content">
                         <h3 data-editable="portfolio-1-title">Современная квартира</h3>
                         <p data-editable="portfolio-1-text">Минималистичный дизайн с акцентами</p>
                     </div>
                 </div>
                 <div class="portfolio-card">
-                    <img src="src/assets/portfolio-2.jpg" alt="Проект 2" data-editable="portfolio-2-image">
+                    <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Проект 2" data-editable="portfolio-2-image">
                     <div class="portfolio-card-content">
                         <h3 data-editable="portfolio-2-title">Уютная гостиная</h3>
                         <p data-editable="portfolio-2-text">Тёплые тона и натуральные материалы</p>
                     </div>
                 </div>
                 <div class="portfolio-card">
-                    <img src="src/assets/portfolio-3.jpg" alt="Проект 3" data-editable="portfolio-3-image">
+                    <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Проект 3" data-editable="portfolio-3-image">
                     <div class="portfolio-card-content">
                         <h3 data-editable="portfolio-3-title">Стильная спальня</h3>
                         <p data-editable="portfolio-3-text">Элегантность и комфорт</p>
@@ -1293,7 +1216,7 @@
         </div>
     </section>
 
-    <!-- Video Section - FIXED -->
+    <!-- Video Section -->
     <section id="video" class="video-section">
         <div class="container">
             <h2 class="section-title font-great-vibes" data-editable="video-title">Видео проектов</h2>
@@ -1301,44 +1224,16 @@
             <div class="video-grid">
                 <div class="video-card">
                     <div class="video-container" id="video-1-container">
-                        <img class="video-thumbnail" src="src/assets/video-thumb-1.jpg" alt="Превью видео 1" data-editable="video-1-thumbnail">
+                        <img class="video-thumbnail" src="https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Превью видео 1" data-editable="video-1-thumbnail">
                         <div class="video-play-button" onclick="playVideo(1)">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
                         </div>
-                        <div class="video-duration" id="duration-1">0:00</div>
+                        <div class="video-duration" id="duration-1">2:34</div>
                         <video class="video-player" id="video-1" data-editable="video-1-file">
                             Ваш браузер не поддерживает видео тег.
                         </video>
-                        <div class="video-controls">
-                            <div class="progress-bar" onclick="seekVideo(event, 1)">
-                                <div class="progress" id="progress-1"></div>
-                            </div>
-                            <div class="control-buttons">
-                                <div class="control-left">
-                                    <button class="control-btn" onclick="togglePlay(1)" id="play-btn-1">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M8 5v14l11-7z"/>
-                                        </svg>
-                                        Пауза
-                                    </button>
-                                    <span class="control-btn" id="time-1">0:00 / 0:00</span>
-                                </div>
-                                <div class="control-right">
-                                    <button class="control-btn" onclick="toggleMute(1)" id="mute-btn-1">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-                                        </svg>
-                                    </button>
-                                    <button class="control-btn" onclick="toggleFullscreen(1)">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="video-card-content">
                         <h3 data-editable="video-1-title">Обзор современной квартиры</h3>
@@ -1347,44 +1242,16 @@
                 </div>
                 <div class="video-card">
                     <div class="video-container" id="video-2-container">
-                        <img class="video-thumbnail" src="src/assets/video-thumb-2.jpg" alt="Превью видео 2" data-editable="video-2-thumbnail">
+                        <img class="video-thumbnail" src="https://images.unsplash.com/photo-1615873968403-89e068629265?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Превью видео 2" data-editable="video-2-thumbnail">
                         <div class="video-play-button" onclick="playVideo(2)">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
                         </div>
-                        <div class="video-duration" id="duration-2">0:00</div>
+                        <div class="video-duration" id="duration-2">3:15</div>
                         <video class="video-player" id="video-2" data-editable="video-2-file">
                             Ваш браузер не поддерживает видео тег.
                         </video>
-                        <div class="video-controls">
-                            <div class="progress-bar" onclick="seekVideo(event, 2)">
-                                <div class="progress" id="progress-2"></div>
-                            </div>
-                            <div class="control-buttons">
-                                <div class="control-left">
-                                    <button class="control-btn" onclick="togglePlay(2)" id="play-btn-2">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M8 5v14l11-7z"/>
-                                        </svg>
-                                        Пауза
-                                    </button>
-                                    <span class="control-btn" id="time-2">0:00 / 0:00</span>
-                                </div>
-                                <div class="control-right">
-                                    <button class="control-btn" onclick="toggleMute(2)" id="mute-btn-2">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-                                        </svg>
-                                    </button>
-                                    <button class="control-btn" onclick="toggleFullscreen(2)">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="video-card-content">
                         <h3 data-editable="video-2-title">Процесс создания интерьера</h3>
@@ -1393,44 +1260,16 @@
                 </div>
                 <div class="video-card">
                     <div class="video-container" id="video-3-container">
-                        <img class="video-thumbnail" src="src/assets/video-thumb-3.jpg" alt="Превью видео 3" data-editable="video-3-thumbnail">
+                        <img class="video-thumbnail" src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Превью видео 3" data-editable="video-3-thumbnail">
                         <div class="video-play-button" onclick="playVideo(3)">
                             <svg viewBox="0 0 24 24">
                                 <path d="M8 5v14l11-7z"/>
                             </svg>
                         </div>
-                        <div class="video-duration" id="duration-3">0:00</div>
+                        <div class="video-duration" id="duration-3">4:22</div>
                         <video class="video-player" id="video-3" data-editable="video-3-file">
                             Ваш браузер не поддерживает видео тег.
                         </video>
-                        <div class="video-controls">
-                            <div class="progress-bar" onclick="seekVideo(event, 3)">
-                                <div class="progress" id="progress-3"></div>
-                            </div>
-                            <div class="control-buttons">
-                                <div class="control-left">
-                                    <button class="control-btn" onclick="togglePlay(3)" id="play-btn-3">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M8 5v14l11-7z"/>
-                                        </svg>
-                                        Пауза
-                                    </button>
-                                    <span class="control-btn" id="time-3">0:00 / 0:00</span>
-                                </div>
-                                <div class="control-right">
-                                    <button class="control-btn" onclick="toggleMute(3)" id="mute-btn-3">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-                                        </svg>
-                                    </button>
-                                    <button class="control-btn" onclick="toggleFullscreen(3)">
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="video-card-content">
                         <h3 data-editable="video-3-title">Интервью с клиентом</h3>
@@ -1549,12 +1388,15 @@
                     <textarea id="hero-subtitle"></textarea>
                 </div>
                 <div class="admin-form-group">
-                    <label>Изображение героя</label>
-                    <div class="image-upload" onclick="document.getElementById('hero-image-upload').click()">
-                        Нажмите для загрузки изображения
+                    <label>Изображение героя (URL)</label>
+                    <div class="image-upload-info">
+                        Для загрузки изображений используйте внешние сервисы (Imgur, Google Drive, Dropbox) и вставьте прямую ссылку
                     </div>
-                    <input type="file" id="hero-image-upload" style="display: none;" accept="image/*" onchange="handleImageUpload(this, 'hero-image')">
-                    <img id="hero-image-preview" class="image-preview" src="" alt="Превью">
+                    <div class="external-link-input">
+                        <input type="text" id="hero-image" placeholder="https://example.com/image.jpg">
+                        <button class="test-image-btn" onclick="testImage('hero-image')">Проверить</button>
+                    </div>
+                    <img id="hero-image-preview" class="image-preview" src="" alt="Превью" style="display: none;">
                 </div>
             </div>
 
@@ -1577,12 +1419,15 @@
                     <textarea id="about-text-3"></textarea>
                 </div>
                 <div class="admin-form-group">
-                    <label>Изображение</label>
-                    <div class="image-upload" onclick="document.getElementById('about-image-upload').click()">
-                        Нажмите для загрузки изображения
+                    <label>Изображение (URL)</label>
+                    <div class="image-upload-info">
+                        Для загрузки изображений используйте внешние сервисы (Imgur, Google Drive, Dropbox) и вставьте прямую ссылку
                     </div>
-                    <input type="file" id="about-image-upload" style="display: none;" accept="image/*" onchange="handleImageUpload(this, 'about-image')">
-                    <img id="about-image-preview" class="image-preview" src="" alt="Превью">
+                    <div class="external-link-input">
+                        <input type="text" id="about-image" placeholder="https://example.com/image.jpg">
+                        <button class="test-image-btn" onclick="testImage('about-image')">Проверить</button>
+                    </div>
+                    <img id="about-image-preview" class="image-preview" src="" alt="Превью" style="display: none;">
                 </div>
             </div>
 
@@ -1745,12 +1590,12 @@
                     <textarea id="portfolio-1-text"></textarea>
                 </div>
                 <div class="admin-form-group">
-                    <label>Изображение</label>
-                    <div class="image-upload" onclick="document.getElementById('portfolio-1-image-upload').click()">
-                        Нажмите для загрузки изображения
+                    <label>Изображение (URL)</label>
+                    <div class="external-link-input">
+                        <input type="text" id="portfolio-1-image" placeholder="https://example.com/image.jpg">
+                        <button class="test-image-btn" onclick="testImage('portfolio-1-image')">Проверить</button>
                     </div>
-                    <input type="file" id="portfolio-1-image-upload" style="display: none;" accept="image/*" onchange="handleImageUpload(this, 'portfolio-1-image')">
-                    <img id="portfolio-1-image-preview" class="image-preview" src="" alt="Превью">
+                    <img id="portfolio-1-image-preview" class="image-preview" src="" alt="Превью" style="display: none;">
                 </div>
                 <h3>Проект 2</h3>
                 <div class="admin-form-group">
@@ -1762,12 +1607,12 @@
                     <textarea id="portfolio-2-text"></textarea>
                 </div>
                 <div class="admin-form-group">
-                    <label>Изображение</label>
-                    <div class="image-upload" onclick="document.getElementById('portfolio-2-image-upload').click()">
-                        Нажмите для загрузки изображения
+                    <label>Изображение (URL)</label>
+                    <div class="external-link-input">
+                        <input type="text" id="portfolio-2-image" placeholder="https://example.com/image.jpg">
+                        <button class="test-image-btn" onclick="testImage('portfolio-2-image')">Проверить</button>
                     </div>
-                    <input type="file" id="portfolio-2-image-upload" style="display: none;" accept="image/*" onchange="handleImageUpload(this, 'portfolio-2-image')">
-                    <img id="portfolio-2-image-preview" class="image-preview" src="" alt="Превью">
+                    <img id="portfolio-2-image-preview" class="image-preview" src="" alt="Превью" style="display: none;">
                 </div>
                 <h3>Проект 3</h3>
                 <div class="admin-form-group">
@@ -1779,12 +1624,12 @@
                     <textarea id="portfolio-3-text"></textarea>
                 </div>
                 <div class="admin-form-group">
-                    <label>Изображение</label>
-                    <div class="image-upload" onclick="document.getElementById('portfolio-3-image-upload').click()">
-                        Нажмите для загрузки изображения
+                    <label>Изображение (URL)</label>
+                    <div class="external-link-input">
+                        <input type="text" id="portfolio-3-image" placeholder="https://example.com/image.jpg">
+                        <button class="test-image-btn" onclick="testImage('portfolio-3-image')">Проверить</button>
                     </div>
-                    <input type="file" id="portfolio-3-image-upload" style="display: none;" accept="image/*" onchange="handleImageUpload(this, 'portfolio-3-image')">
-                    <img id="portfolio-3-image-preview" class="image-preview" src="" alt="Превью">
+                    <img id="portfolio-3-image-preview" class="image-preview" src="" alt="Превью" style="display: none;">
                 </div>
             </div>
 
@@ -1808,22 +1653,19 @@
                     <textarea id="video-1-text"></textarea>
                 </div>
                 <div class="admin-form-group">
-                    <label>Превью изображение</label>
-                    <div class="image-upload" onclick="document.getElementById('video-1-thumbnail-upload').click()">
-                        Нажмите для загрузки превью
+                    <label>Превью изображение (URL)</label>
+                    <div class="external-link-input">
+                        <input type="text" id="video-1-thumbnail" placeholder="https://example.com/image.jpg">
+                        <button class="test-image-btn" onclick="testImage('video-1-thumbnail')">Проверить</button>
                     </div>
-                    <input type="file" id="video-1-thumbnail-upload" style="display: none;" accept="image/*" onchange="handleImageUpload(this, 'video-1-thumbnail')">
-                    <img id="video-1-thumbnail-preview" class="image-preview" src="" alt="Превью">
+                    <img id="video-1-thumbnail-preview" class="image-preview" src="" alt="Превью" style="display: none;">
                 </div>
                 <div class="admin-form-group">
-                    <label>Видео файл</label>
-                    <div class="image-upload" onclick="document.getElementById('admin-video-1-upload').click()">
-                        Нажмите для загрузки видео
+                    <label>Видео файл (URL)</label>
+                    <div class="image-upload-info">
+                        Для загрузки видео используйте YouTube, Vimeo или другие видеохостинги
                     </div>
-                    <input type="file" id="admin-video-1-upload" style="display: none;" accept="video/*" onchange="handleVideoUpload(this, 'video-1')">
-                    <video id="admin-video-1-preview" class="video-preview" controls style="display: none;">
-                        Ваш браузер не поддерживает видео тег.
-                    </video>
+                    <input type="text" id="video-1-file" placeholder="https://example.com/video.mp4">
                 </div>
                 <h3>Видео 2</h3>
                 <div class="admin-form-group">
@@ -1835,22 +1677,16 @@
                     <textarea id="video-2-text"></textarea>
                 </div>
                 <div class="admin-form-group">
-                    <label>Превью изображение</label>
-                    <div class="image-upload" onclick="document.getElementById('video-2-thumbnail-upload').click()">
-                        Нажмите для загрузки превью
+                    <label>Превью изображение (URL)</label>
+                    <div class="external-link-input">
+                        <input type="text" id="video-2-thumbnail" placeholder="https://example.com/image.jpg">
+                        <button class="test-image-btn" onclick="testImage('video-2-thumbnail')">Проверить</button>
                     </div>
-                    <input type="file" id="video-2-thumbnail-upload" style="display: none;" accept="image/*" onchange="handleImageUpload(this, 'video-2-thumbnail')">
-                    <img id="video-2-thumbnail-preview" class="image-preview" src="" alt="Превью">
+                    <img id="video-2-thumbnail-preview" class="image-preview" src="" alt="Превью" style="display: none;">
                 </div>
                 <div class="admin-form-group">
-                    <label>Видео файл</label>
-                    <div class="image-upload" onclick="document.getElementById('admin-video-2-upload').click()">
-                        Нажмите для загрузки видео
-                    </div>
-                    <input type="file" id="admin-video-2-upload" style="display: none;" accept="video/*" onchange="handleVideoUpload(this, 'video-2')">
-                    <video id="admin-video-2-preview" class="video-preview" controls style="display: none;">
-                        Ваш браузер не поддерживает видео тег.
-                    </video>
+                    <label>Видео файл (URL)</label>
+                    <input type="text" id="video-2-file" placeholder="https://example.com/video.mp4">
                 </div>
                 <h3>Видео 3</h3>
                 <div class="admin-form-group">
@@ -1862,22 +1698,16 @@
                     <textarea id="video-3-text"></textarea>
                 </div>
                 <div class="admin-form-group">
-                    <label>Превью изображение</label>
-                    <div class="image-upload" onclick="document.getElementById('video-3-thumbnail-upload').click()">
-                        Нажмите для загрузки превью
+                    <label>Превью изображение (URL)</label>
+                    <div class="external-link-input">
+                        <input type="text" id="video-3-thumbnail" placeholder="https://example.com/image.jpg">
+                        <button class="test-image-btn" onclick="testImage('video-3-thumbnail')">Проверить</button>
                     </div>
-                    <input type="file" id="video-3-thumbnail-upload" style="display: none;" accept="image/*" onchange="handleImageUpload(this, 'video-3-thumbnail')">
-                    <img id="video-3-thumbnail-preview" class="image-preview" src="" alt="Превью">
+                    <img id="video-3-thumbnail-preview" class="image-preview" src="" alt="Превью" style="display: none;">
                 </div>
                 <div class="admin-form-group">
-                    <label>Видео файл</label>
-                    <div class="image-upload" onclick="document.getElementById('admin-video-3-upload').click()">
-                        Нажмите для загрузки видео
-                    </div>
-                    <input type="file" id="admin-video-3-upload" style="display: none;" accept="video/*" onchange="handleVideoUpload(this, 'video-3')">
-                    <video id="admin-video-3-preview" class="video-preview" controls style="display: none;">
-                        Ваш браузер не поддерживает видео тег.
-                    </video>
+                    <label>Видео файл (URL)</label>
+                    <input type="text" id="video-3-file" placeholder="https://example.com/video.mp4">
                 </div>
             </div>
 
@@ -1936,26 +1766,16 @@
         // Data storage and management
         let siteData = {};
         const ADMIN_PASSWORD = "admin123";
-        const MAX_VIDEO_SIZE = 10 * 1024 * 1024; // 10MB limit for videos
-
-        // Video state management
-        const videoStates = {
-            1: { playing: false, muted: false, volume: 1 },
-            2: { playing: false, muted: false, volume: 1 },
-            3: { playing: false, muted: false, volume: 1 }
-        };
 
         // Initialize data from localStorage or set defaults
         function initializeData() {
             console.log("Initializing data...");
-            
-            // Load text data from localStorage
             const savedData = localStorage.getItem('siteData');
             
             if (savedData) {
                 try {
                     siteData = JSON.parse(savedData);
-                    console.log("Loaded text data from localStorage");
+                    console.log("Loaded data from localStorage");
                     
                     if (Object.keys(siteData).length === 0) {
                         console.log("Empty data in localStorage, setting defaults");
@@ -1970,9 +1790,6 @@
                 setDefaultData();
             }
             
-            // Load video files from IndexedDB
-            loadVideosFromStorage();
-            
             applyDataToSite();
             loadDataToAdminForm();
         }
@@ -1982,14 +1799,14 @@
                 // Hero section
                 'hero-title': 'Комфорт в каждом штрихе',
                 'hero-subtitle': 'Создаю интерьеры, в которых хочется жить, отдыхать и вдохновляться каждый день.',
-                'hero-image': 'src/assets/hero-kitchen.jpg',
+                'hero-image': 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
                 
                 // About section
                 'about-title': 'Обо мне',
                 'about-text-1': 'Я — Ольга Коренкова, дизайнер интерьеров с более чем 8-летним опытом. Работала с частными клиентами и небольшими девелоперскими проектами, сотрудничала с архитектурными бюро и мебельными мастерскими.',
                 'about-text-2': 'Создаю продуманные, функциональные и тёплые пространства. Мой подход основан на глубоком понимании потребностей каждого клиента и внимании к деталям. Каждый проект — это уникальная история, отражающая индивидуальность владельца.',
                 'about-text-3': 'Верю, что хороший интерьер — это не только красиво, но и комфортно. Это пространство, которое поддерживает вашу жизнь и вдохновляет каждый день.',
-                'about-image': 'src/assets/olga-portrait.jpg',
+                'about-image': 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
                 
                 // Services section
                 'services-title': 'Услуги',
@@ -2031,13 +1848,13 @@
                 'portfolio-subtitle': 'Примеры реализованных проектов',
                 'portfolio-1-title': 'Современная квартира',
                 'portfolio-1-text': 'Минималистичный дизайн с акцентами',
-                'portfolio-1-image': 'src/assets/portfolio-1.jpg',
+                'portfolio-1-image': 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
                 'portfolio-2-title': 'Уютная гостиная',
                 'portfolio-2-text': 'Тёплые тона и натуральные материалы',
-                'portfolio-2-image': 'src/assets/portfolio-2.jpg',
+                'portfolio-2-image': 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
                 'portfolio-3-title': 'Стильная спальня',
                 'portfolio-3-text': 'Элегантность и комфорт',
-                'portfolio-3-image': 'src/assets/portfolio-3.jpg',
+                'portfolio-3-image': 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
                 
                 // Video section
                 'video-title': 'Видео проектов',
@@ -2045,15 +1862,15 @@
                 'video-1-title': 'Обзор современной квартиры',
                 'video-1-text': 'Полный обзор реализованного проекта с комментариями дизайнера',
                 'video-1-file': '',
-                'video-1-thumbnail': 'src/assets/video-thumb-1.jpg',
+                'video-1-thumbnail': 'https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
                 'video-2-title': 'Процесс создания интерьера',
                 'video-2-text': 'От концепции до реализации - весь путь проекта',
                 'video-2-file': '',
-                'video-2-thumbnail': 'src/assets/video-thumb-2.jpg',
+                'video-2-thumbnail': 'https://images.unsplash.com/photo-1615873968403-89e068629265?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
                 'video-3-title': 'Интервью с клиентом',
                 'video-3-text': 'Отзывы и впечатления от сотрудничества',
                 'video-3-file': '',
-                'video-3-thumbnail': 'src/assets/video-thumb-3.jpg',
+                'video-3-thumbnail': 'https://images.unsplash.com/photo-1631679706909-1844bbd07221?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
                 
                 // Manifesto section
                 'manifesto-title': 'Для клиентов',
@@ -2069,26 +1886,7 @@
                 'footer-phone': '+7 (928) 430-12-70'
             };
             
-            saveTextData();
-        }
-
-        // Save text data to localStorage
-        function saveTextData() {
-            console.log("Saving text data to localStorage...");
-            try {
-                // Don't save large files to localStorage
-                const textData = {...siteData};
-                // Remove video file data from localStorage save
-                delete textData['video-1-file'];
-                delete textData['video-2-file'];
-                delete textData['video-3-file'];
-                
-                localStorage.setItem('siteData', JSON.stringify(textData));
-                console.log("Text data saved successfully");
-            } catch (e) {
-                console.error("Error saving text data to localStorage:", e);
-                alert('Ошибка сохранения данных! Возможно, превышен лимит хранилища.');
-            }
+            saveData();
         }
 
         // Apply data to the site
@@ -2103,8 +1901,10 @@
                         element.src = siteData[key];
                         console.log(`Set image ${key} to:`, siteData[key]);
                     } else if (element.tagName === 'VIDEO') {
-                        // Video src will be set by loadVideosFromStorage
-                        console.log(`Video element ${key} found`);
+                        if (siteData[key]) {
+                            element.src = siteData[key];
+                            console.log(`Set video ${key} to:`, siteData[key]);
+                        }
                     } else {
                         element.textContent = siteData[key];
                         console.log(`Set text ${key} to:`, siteData[key]);
@@ -2113,28 +1913,6 @@
                     console.warn(`No data found for key: ${key}`);
                 }
             });
-        }
-
-        // Initialize videos on page load
-        function initializeVideos() {
-            for (let i = 1; i <= 3; i++) {
-                const videoElement = document.getElementById(`video-${i}`);
-                
-                if (videoElement) {
-                    // Add event listeners for video controls
-                    videoElement.addEventListener('timeupdate', () => updateProgress(i));
-                    videoElement.addEventListener('loadedmetadata', () => {
-                        updateTimeDisplay(i);
-                        // Set initial duration
-                        const duration = formatTime(videoElement.duration);
-                        document.getElementById(`duration-${i}`).textContent = duration;
-                    });
-                    videoElement.addEventListener('ended', () => {
-                        videoStates[i].playing = false;
-                        updatePlayButton(i);
-                    });
-                }
-            }
         }
 
         // Video control functions
@@ -2148,106 +1926,7 @@
                     console.error('Video play failed:', e);
                     container.classList.remove('playing');
                 });
-                videoStates[videoNumber].playing = true;
-                updatePlayButton(videoNumber);
             }
-        }
-
-        function togglePlay(videoNumber) {
-            const videoElement = document.getElementById(`video-${videoNumber}`);
-            if (videoElement) {
-                if (videoElement.paused) {
-                    videoElement.play();
-                    videoStates[videoNumber].playing = true;
-                } else {
-                    videoElement.pause();
-                    videoStates[videoNumber].playing = false;
-                }
-                updatePlayButton(videoNumber);
-            }
-        }
-
-        function toggleMute(videoNumber) {
-            const videoElement = document.getElementById(`video-${videoNumber}`);
-            if (videoElement) {
-                videoElement.muted = !videoElement.muted;
-                videoStates[videoNumber].muted = videoElement.muted;
-                updateMuteButton(videoNumber);
-            }
-        }
-
-        function toggleFullscreen(videoNumber) {
-            const container = document.getElementById(`video-${videoNumber}-container`);
-            if (container) {
-                if (!document.fullscreenElement) {
-                    container.requestFullscreen().catch(err => {
-                        console.log(`Error attempting to enable fullscreen: ${err.message}`);
-                    });
-                } else {
-                    document.exitFullscreen();
-                }
-            }
-        }
-
-        function seekVideo(event, videoNumber) {
-            const videoElement = document.getElementById(`video-${videoNumber}`);
-            const progressBar = event.currentTarget;
-            const clickX = event.offsetX;
-            const width = progressBar.offsetWidth;
-            const duration = videoElement.duration;
-            
-            videoElement.currentTime = (clickX / width) * duration;
-        }
-
-        function updateProgress(videoNumber) {
-            const videoElement = document.getElementById(`video-${videoNumber}`);
-            const progress = document.getElementById(`progress-${videoNumber}`);
-            
-            if (videoElement && progress) {
-                const percent = (videoElement.currentTime / videoElement.duration) * 100;
-                progress.style.width = percent + '%';
-                updateTimeDisplay(videoNumber);
-            }
-        }
-
-        function updateTimeDisplay(videoNumber) {
-            const videoElement = document.getElementById(`video-${videoNumber}`);
-            const timeDisplay = document.getElementById(`time-${videoNumber}`);
-            
-            if (videoElement && timeDisplay) {
-                const current = formatTime(videoElement.currentTime);
-                const duration = formatTime(videoElement.duration);
-                timeDisplay.textContent = `${current} / ${duration}`;
-            }
-        }
-
-        function updatePlayButton(videoNumber) {
-            const button = document.getElementById(`play-btn-${videoNumber}`);
-            if (button) {
-                if (videoStates[videoNumber].playing) {
-                    button.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>Пауза';
-                } else {
-                    button.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Воспр.';
-                }
-            }
-        }
-
-        function updateMuteButton(videoNumber) {
-            const button = document.getElementById(`mute-btn-${videoNumber}`);
-            if (button) {
-                if (videoStates[videoNumber].muted) {
-                    button.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
-                } else {
-                    button.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
-                }
-            }
-        }
-
-        function formatTime(seconds) {
-            if (isNaN(seconds)) return '0:00';
-            const mins = Math.floor(seconds / 60);
-            const secs = Math.floor(seconds % 60);
-            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
         }
 
         // Load data into admin form
@@ -2266,9 +1945,22 @@
                     const preview = document.getElementById(previewId);
                     if (preview && siteData[key]) {
                         preview.src = siteData[key];
+                        preview.style.display = 'block';
                         console.log(`Set preview ${previewId} to:`, siteData[key]);
                     }
                 }
+            }
+        }
+
+        // Save data to localStorage
+        function saveData() {
+            console.log("Saving data to localStorage...", siteData);
+            try {
+                localStorage.setItem('siteData', JSON.stringify(siteData));
+                console.log("Data saved successfully");
+            } catch (e) {
+                console.error("Error saving data to localStorage:", e);
+                alert('Ошибка сохранения данных! Возможно, превышен лимит хранилища.');
             }
         }
 
@@ -2281,7 +1973,7 @@
             
             inputs.forEach(input => {
                 const key = input.id;
-                if (key && !key.includes('upload') && !key.includes('preview')) {
+                if (key && !key.includes('preview')) {
                     const oldValue = siteData[key];
                     siteData[key] = input.value;
                     console.log(`Updated ${key}:`, oldValue, '->', input.value);
@@ -2289,176 +1981,31 @@
             });
             
             // Save and apply
-            saveTextData();
+            saveData();
             applyDataToSite();
             
             alert('Изменения сохранены!');
         }
 
-        // Handle image upload
-        function handleImageUpload(input, key) {
-            console.log("Handling image upload for:", key);
-            const file = input.files[0];
+        // Test image URL
+        function testImage(imageKey) {
+            const input = document.getElementById(imageKey);
+            const previewId = imageKey + '-preview';
+            const preview = document.getElementById(previewId);
             
-            if (file) {
-                // Check file size (limit to 5MB for images)
-                if (file.size > 5 * 1024 * 1024) {
-                    alert('Файл слишком большой! Максимальный размер изображения: 5MB');
-                    return;
-                }
-                
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    console.log(`Image loaded for ${key}:`, e.target.result.substring(0, 100) + '...');
-                    
-                    // Update data
-                    siteData[key] = e.target.result;
-                    
-                    // Update preview
-                    const previewId = key + '-preview';
-                    const preview = document.getElementById(previewId);
-                    if (preview) {
-                        preview.src = e.target.result;
-                        console.log(`Updated preview ${previewId}`);
-                    }
-                    
-                    // Update the actual image on the site
-                    const siteImage = document.querySelector(`[data-editable="${key}"]`);
-                    if (siteImage && siteImage.tagName === 'IMG') {
-                        siteImage.src = e.target.result;
-                        console.log(`Updated site image for ${key}`);
-                    }
-                    
-                    // Save data immediately
-                    saveTextData();
-                    
-                    alert('Изображение загружено и сохранено!');
+            if (input.value) {
+                preview.src = input.value;
+                preview.style.display = 'block';
+                preview.onload = function() {
+                    alert('Изображение загружено успешно!');
                 };
-                
-                reader.onerror = function(e) {
-                    console.error("Error reading file:", e);
-                    alert('Ошибка при загрузке изображения!');
+                preview.onerror = function() {
+                    alert('Ошибка загрузки изображения! Проверьте URL.');
+                    preview.style.display = 'none';
                 };
-                
-                reader.readAsDataURL(file);
             } else {
-                console.log("No file selected");
+                alert('Введите URL изображения');
             }
-        }
-
-        // Handle video upload
-        function handleVideoUpload(input, videoId) {
-            console.log("Handling video upload for:", videoId);
-            const file = input.files[0];
-            
-            if (file) {
-                // Check file size
-                if (file.size > MAX_VIDEO_SIZE) {
-                    alert(`Файл слишком большой! Максимальный размер видео: ${MAX_VIDEO_SIZE / 1024 / 1024}MB`);
-                    return;
-                }
-                
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    console.log(`Video loaded for ${videoId}`);
-                    
-                    // Store video in IndexedDB
-                    storeVideoInIndexedDB(videoId, e.target.result).then(() => {
-                        // Update video element on site
-                        const videoElement = document.getElementById(videoId);
-                        if (videoElement) {
-                            videoElement.src = e.target.result;
-                        }
-                        
-                        // Update preview in admin panel
-                        const previewId = `admin-${videoId}-preview`;
-                        const preview = document.getElementById(previewId);
-                        if (preview) {
-                            preview.src = e.target.result;
-                            preview.style.display = 'block';
-                        }
-                        
-                        alert('Видео загружено и сохранено!');
-                    }).catch(error => {
-                        console.error("Error storing video:", error);
-                        alert('Ошибка при сохранении видео!');
-                    });
-                };
-                
-                reader.onerror = function(e) {
-                    console.error("Error reading file:", e);
-                    alert('Ошибка при загрузке видео!');
-                };
-                
-                reader.readAsDataURL(file);
-            } else {
-                console.log("No file selected");
-            }
-        }
-
-        // IndexedDB for video storage
-        function openDB() {
-            return new Promise((resolve, reject) => {
-                const request = indexedDB.open('VideoStorage', 1);
-                
-                request.onerror = () => reject(request.error);
-                request.onsuccess = () => resolve(request.result);
-                
-                request.onupgradeneeded = (event) => {
-                    const db = event.target.result;
-                    if (!db.objectStoreNames.contains('videos')) {
-                        db.createObjectStore('videos');
-                    }
-                };
-            });
-        }
-
-        function storeVideoInIndexedDB(key, videoData) {
-            return openDB().then(db => {
-                return new Promise((resolve, reject) => {
-                    const transaction = db.transaction(['videos'], 'readwrite');
-                    const store = transaction.objectStore('videos');
-                    const request = store.put(videoData, key);
-                    
-                    request.onerror = () => reject(request.error);
-                    request.onsuccess = () => resolve();
-                });
-            });
-        }
-
-        function getVideoFromIndexedDB(key) {
-            return openDB().then(db => {
-                return new Promise((resolve, reject) => {
-                    const transaction = db.transaction(['videos'], 'readonly');
-                    const store = transaction.objectStore('videos');
-                    const request = store.get(key);
-                    
-                    request.onerror = () => reject(request.error);
-                    request.onsuccess = () => resolve(request.result);
-                });
-            });
-        }
-
-        function loadVideosFromStorage() {
-            console.log("Loading videos from storage...");
-            
-            for (let i = 1; i <= 3; i++) {
-                const videoKey = `video-${i}`;
-                getVideoFromIndexedDB(videoKey).then(videoData => {
-                    if (videoData) {
-                        console.log(`Loaded video ${videoKey} from IndexedDB`);
-                        const videoElement = document.getElementById(videoKey);
-                        if (videoElement) {
-                            videoElement.src = videoData;
-                        }
-                    }
-                }).catch(error => {
-                    console.log(`No video found for ${videoKey} in IndexedDB`);
-                });
-            }
-            
-            // Initialize video controls after loading
-            setTimeout(initializeVideos, 500);
         }
 
         // Password functions
