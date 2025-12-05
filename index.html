@@ -83,10 +83,11 @@
 
         .logo {
             font-size: 1.8rem;
-            font-weight: 400;
+            font-weight: 500;
             color: hsl(var(--foreground));
             text-decoration: none;
             cursor: pointer;
+            font-family: 'Manrope', sans-serif;
         }
 
         nav {
@@ -148,7 +149,7 @@
 
         .hero h1 {
             font-size: 3.5rem;
-            font-weight: 400;
+            font-weight: 500;
             margin-bottom: 1.5rem;
             line-height: 1.2;
             color: hsl(var(--primary));
@@ -240,7 +241,7 @@
 
         .section-title {
             font-size: 2.5rem;
-            font-weight: 400;
+            font-weight: 500;
             margin-bottom: 1.5rem;
             text-align: center;
             color: hsl(var(--primary));
@@ -293,7 +294,7 @@
 
         .about-content h2 {
             font-size: 2.5rem;
-            font-weight: 400;
+            font-weight: 500;
             margin-bottom: 1.5rem;
             color: hsl(var(--primary));
         }
@@ -370,6 +371,22 @@
             font-family: 'Manrope', sans-serif;
             position: relative;
             z-index: 1;
+        }
+
+        .services-notice {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 1.5rem;
+            background-color: rgba(211, 173, 163, 0.08);
+            border-radius: 1rem;
+            border: 1px solid rgba(211, 173, 163, 0.2);
+        }
+
+        .services-notice p {
+            color: hsl(var(--muted-foreground));
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.125rem;
+            margin: 0;
         }
 
         /* Work Process */
@@ -711,7 +728,7 @@
 
         .furniture-content h2 {
             font-size: 2.5rem;
-            font-weight: 400;
+            font-weight: 500;
             margin-bottom: 1.5rem;
             color: hsl(var(--primary));
         }
@@ -927,7 +944,7 @@
             font-style: italic;
             color: hsl(var(--primary));
             margin-top: 2rem;
-            font-weight: 400;
+            font-weight: 500;
         }
 
         /* Contact Form */
@@ -1004,9 +1021,10 @@
 
         footer h3 {
             font-size: 1.8rem;
-            font-weight: 400;
+            font-weight: 500;
             margin-bottom: 1rem;
             color: hsl(var(--primary));
+            font-family: 'Manrope', sans-serif;
         }
 
         footer h4 {
@@ -1341,7 +1359,7 @@
     <header id="header">
         <div class="container">
             <div class="header-content">
-                <a href="#hero" class="logo font-great-vibes" data-editable="logo">OK</a>
+                <a href="#hero" class="logo" data-editable="logo">OK</a>
                 <nav id="nav">
                     <a href="#about">О себе</a>
                     <a href="#services">Услуги</a>
@@ -1388,9 +1406,8 @@
             <div class="about-grid">
                 <div class="about-content">
                     <h2 class="font-great-vibes" data-editable="about-title">Обо мне</h2>
-                    <p data-editable="about-text-1">Я — Ольга Коренкова, дизайнер интерьеров с более чем 10-летним опытом. Работала с частными клиентами и небольшими девелоперскими проектами, сотрудничала с архитектурными бюро и мебельными мастерскими.</p>
-                    <p data-editable="about-text-2">Создаю продуманные, функциональные и тёплые пространства. Мой подход основан на глубоком понимании потребностей каждого клиента и внимании к деталям. Каждый проект — это уникальная история, отражающая индивидуальность владельца.</p>
-                    <p data-editable="about-text-3">Верю, что хороший интерьер — это не только красиво, но и комфортно. Это пространство, которое поддерживает вашу жизнь и вдохновляет каждый день.</p>
+                    <p data-editable="about-text-1">Я — Ольга Коренкова, дизайнер интерьеров с более чем 10-летним опытом. Делаю дизайн-проекты, как для частных лиц, так и для коммерческих и некоммерческих организации.</p>
+                    <p data-editable="about-text-2">Мои интерьерные решения отличаются, как индивидуальность концепции, так и проработкой мебелировки под заказ, которая тонко впишется в дизайн Вашего пространства, будет эргономичной, функциональной и дополнит эксклюзивностью любой интерьер.</p>
                 </div>
                 <div class="about-image">
                     <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Ольга Коренкова - дизайнер интерьеров" data-editable="about-image">
@@ -1413,7 +1430,7 @@
                             <line x1="9" y1="21" x2="9" y2="9"></line>
                         </svg>
                     </div>
-                    <h3 data-editable="service-1-title">Дизайн-проект</h3>
+                    <h3 data-editable="service-1-title">Технический дизайн-проект</h3>
                     <p data-editable="service-1-text">Полный дизайн-проект с визуализацией, чертежами и комплектацией. Детальная проработка всех помещений.</p>
                 </div>
                 <div class="service-card">
@@ -1430,22 +1447,12 @@
                 <div class="service-card">
                     <div class="service-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M12 6v6l4 2"></path>
-                        </svg>
-                    </div>
-                    <h3 data-editable="service-3-title">Авторский надзор</h3>
-                    <p data-editable="service-3-text">Контроль выполнения проекта на всех этапах ремонта. Взаимодействие с подрядчиками.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
                             <line x1="7" y1="7" x2="7.01" y2="7"></line>
                         </svg>
                     </div>
                     <h3 data-editable="service-4-title">Комплектация</h3>
-                    <p data-editable="service-4-text">Подбор всех материалов, мебели и декора. Помощь в закупке и координация поставок.</p>
+                    <p data-editable="service-4-text">Подбор всех материалов, мебели и декора. Помощь в закупке и мониторинг цен, т.е. подскажу где дешевле.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -1459,6 +1466,9 @@
                     <p data-editable="service-5-text">Проектирование и изготовление мебели по индивидуальным размерам и дизайну.</p>
                 </div>
             </div>
+            <div class="services-notice">
+                <p data-editable="services-notice">Осуществляю как полный комплекс так и отдельные виды услуг из выше перечисленных</p>
+            </div>
         </div>
     </section>
 
@@ -1471,21 +1481,21 @@
                 <div class="process-step">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <h3 data-editable="step-1-title">Знакомство и замеры</h3>
+                        <h3 data-editable="step-1-title">Знакомство</h3>
                         <p data-editable="step-1-subtitle">Обсуждаем стиль, задачи и пожелания. Провожу замеры и анализ пространства.</p>
                     </div>
                 </div>
                 <div class="process-step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h3 data-editable="step-2-title">Концепция и визуализация</h3>
+                        <h3 data-editable="step-2-title">Концепция</h3>
                         <p data-editable="step-2-subtitle">Создаю планировку и 3D-визуализацию, коллаж интерьера, чтобы вы сразу увидели результат.</p>
                     </div>
                 </div>
                 <div class="process-step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h3 data-editable="step-3-title">Реализация и подбор</h3>
+                        <h3 data-editable="step-3-title">Реализация</h3>
                         <p data-editable="step-3-subtitle">Готовлю рабочую документацию, помогаю подобрать мебель, материалы и свет.</p>
                         <p class="step-details" data-editable="step-3-details">Полный комплект чертежей для строителей (план по электрике, сантехнике, демонтажу и т.д.)</p>
                     </div>
@@ -1522,12 +1532,15 @@
                 <div class="benefit-card">
                     <div class="benefit-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <path d="M9 12l2 2 4-4"></path>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <circle cx="12" cy="12" r="2"></circle>
+                                <path d="M12 6v6l4 2"></path>
+                            </svg>
                         </svg>
                     </div>
-                    <h3 data-editable="benefit-3-title">Честность</h3>
-                    <p data-editable="benefit-3-text">Прозрачная работа на всех этапах, никаких скрытых платежей</p>
+                    <h3 data-editable="benefit-3-title">Внимание к деталям</h3>
+                    <p data-editable="benefit-3-text">Тщательная проработка каждой мелочи, которая создаёт гармонию в интерьере</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
@@ -1655,8 +1668,9 @@
         <div class="container">
             <div class="manifesto-content">
                 <h2 class="section-title font-great-vibes" data-editable="manifesto-title">Для клиентов</h2>
-                <p data-editable="manifesto-text-1">Интерьер — это не только красиво. Это про заботу, порядок и уют, который поддерживает вашу жизнь.</p>
-                <p data-editable="manifesto-text-2">Я помогаю превращать идеи в продуманные пространства, где важно всё: свет, материалы, ритм и детали.</p>
+                <p data-editable="manifesto-text-1">- Всё начинается с детального обсуждения, и только после этого можно переходить к макетам и выбору материала.</p>
+                <p data-editable="manifesto-text-2">- Чёткое описание пожеланий (фото, картинки, эскизы от руки) и открытость на всех этапах - ключевые аспекты успешного сотрудничества.</p>
+                <p data-editable="manifesto-text-3">- Задавайте много вопросов и не бойтесь обсуждать свои идеи - это является основой успешного проекта.</p>
                 <p class="manifesto-quote font-great-vibes" data-editable="manifesto-quote">"Хороший дизайн незаметен. Он просто делает жизнь лучше."</p>
             </div>
         </div>
@@ -1691,7 +1705,7 @@
             <div class="footer-grid">
                 <div>
                     <h3 class="font-great-vibes" data-editable="footer-name">Ольга Коренкова</h3>
-                    <p data-editable="footer-description">Дизайнер интерьеров с опытом более 8 лет</p>
+                    <p data-editable="footer-description">Дизайнер интерьеров с опытом более 10 лет</p>
                 </div>
                 <div>
                     <h4>Контакты</h4>
@@ -1727,6 +1741,7 @@
             <div class="admin-buttons">
                 <button class="btn btn-primary" onclick="checkPassword()">Войти</button>
                 <button class="btn btn-outline" onclick="closePasswordModal()">Отмена</button>
+                <button class="btn btn-secondary" onclick="resetData()" style="margin-top: 1rem;">Сбросить все данные (для тестирования)</button>
             </div>
         </div>
     </div>
@@ -1782,10 +1797,6 @@
                     <textarea id="about-text-2"></textarea>
                 </div>
                 <div class="admin-form-group">
-                    <label for="about-text-3">Текст 3</label>
-                    <textarea id="about-text-3"></textarea>
-                </div>
-                <div class="admin-form-group">
                     <label for="about-image">Изображение (URL)</label>
                     <input type="text" id="about-image" placeholder="https://example.com/image.jpg">
                     <img id="about-image-preview" class="image-preview" src="" alt="Превью">
@@ -1826,16 +1837,6 @@
 
                 <h3>Услуга 3</h3>
                 <div class="admin-form-group">
-                    <label for="service-3-title">Название услуги</label>
-                    <input type="text" id="service-3-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="service-3-text">Описание услуги</label>
-                    <textarea id="service-3-text"></textarea>
-                </div>
-
-                <h3>Услуга 4</h3>
-                <div class="admin-form-group">
                     <label for="service-4-title">Название услуги</label>
                     <input type="text" id="service-4-title">
                 </div>
@@ -1844,7 +1845,7 @@
                     <textarea id="service-4-text"></textarea>
                 </div>
 
-                <h3>Услуга 5</h3>
+                <h3>Услуга 4</h3>
                 <div class="admin-form-group">
                     <label for="service-5-title">Название услуги</label>
                     <input type="text" id="service-5-title">
@@ -1852,6 +1853,12 @@
                 <div class="admin-form-group">
                     <label for="service-5-text">Описание услуги</label>
                     <textarea id="service-5-text"></textarea>
+                </div>
+
+                <h3>Примечание</h3>
+                <div class="admin-form-group">
+                    <label for="services-notice">Дополнительный текст после услуг</label>
+                    <textarea id="services-notice"></textarea>
                 </div>
             </div>
 
@@ -2098,6 +2105,10 @@
                     <textarea id="manifesto-text-2"></textarea>
                 </div>
                 <div class="admin-form-group">
+                    <label for="manifesto-text-3">Текст 3</label>
+                    <textarea id="manifesto-text-3"></textarea>
+                </div>
+                <div class="admin-form-group">
                     <label for="manifesto-quote">Цитата</label>
                     <textarea id="manifesto-quote"></textarea>
                 </div>
@@ -2130,6 +2141,7 @@
             <div class="admin-buttons">
                 <button class="btn btn-primary" onclick="saveChanges()">Сохранить изменения</button>
                 <button class="btn btn-outline" onclick="closeAdminPanel()">Закрыть</button>
+                <button class="btn btn-secondary" onclick="resetData()">Сбросить к значениям по умолчанию</button>
             </div>
         </div>
     </div>
@@ -2138,18 +2150,27 @@
         // Data storage and management
         let siteData = {};
         const ADMIN_PASSWORD = "admin123";
+        const VERSION = "2.0"; // Новая версия данных
         
         // Carousel state
         let currentFurnitureSlide = 0;
 
-        // Initialize data
+        // Initialize data with version check
         function initializeData() {
             const savedData = localStorage.getItem('siteData');
+            const savedVersion = localStorage.getItem('siteVersion');
             
-            if (savedData) {
-                siteData = JSON.parse(savedData);
-            } else {
+            // Если нет сохраненных данных или старая версия - устанавливаем данные по умолчанию
+            if (!savedData || savedVersion !== VERSION) {
+                console.log('Устанавливаем данные по умолчанию. Версия:', VERSION);
                 setDefaultData();
+            } else {
+                try {
+                    siteData = JSON.parse(savedData);
+                } catch (e) {
+                    console.error('Ошибка загрузки данных:', e);
+                    setDefaultData();
+                }
             }
             
             applyDataToSite();
@@ -2170,33 +2191,31 @@
                 
                 // About section
                 'about-title': 'Обо мне',
-                'about-text-1': 'Я — Ольга Коренкова, дизайнер интерьеров с более чем 8-летним опытом. Работала с частными клиентами и небольшими девелоперскими проектами, сотрудничала с архитектурными бюро и мебельными мастерскими.',
-                'about-text-2': 'Создаю продуманные, функциональные и тёплые пространства. Мой подход основан на глубоком понимании потребностей каждого клиента и внимании к деталям. Каждый проект — это уникальная история, отражающая индивидуальность владельца.',
-                'about-text-3': 'Верю, что хороший интерьер — это не только красиво, но и комфортно. Это пространство, которое поддерживает вашу жизнь и вдохновляет каждый день.',
+                'about-text-1': 'Я — Ольга Коренкова, дизайнер интерьеров с более чем 10-летним опытом. Делаю дизайн-проекты, как для частных лиц, так и для коммерческих и некоммерческих организации.',
+                'about-text-2': 'Мои интерьерные решения отличаются, как индивидуальность концепции, так и проработкой мебелировки под заказ, которая тонко впишется в дизайн Вашего пространства, будет эргономичной, функциональной и дополнит эксклюзивностью любой интерьер.',
                 'about-image': 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
                 
                 // Services section
                 'services-title': 'Услуги',
                 'services-subtitle': 'Полный спектр услуг по дизайну интерьера',
-                'service-1-title': 'Дизайн-проект',
+                'service-1-title': 'Технический дизайн-проект',
                 'service-1-text': 'Полный дизайн-проект с визуализацией, чертежами и комплектацией. Детальная проработка всех помещений.',
                 'service-2-title': '3D-визуализация',
                 'service-2-text': 'Реалистичные 3D-визуализации помогут увидеть будущий интерьер до начала ремонта.',
-                'service-3-title': 'Авторский надзор',
-                'service-3-text': 'Контроль выполнения проекта на всех этапах ремонта. Взаимодействие с подрядчиками.',
                 'service-4-title': 'Комплектация',
-                'service-4-text': 'Подбор всех материалов, мебели и декора. Помощь в закупке и координация поставок.',
+                'service-4-text': 'Подбор всех материалов, мебели и декора. Помощь в закупке и мониторинг цен, т.е. подскажу где дешевле.',
                 'service-5-title': 'Мебелировка',
                 'service-5-text': 'Проектирование и изготовление мебели по индивидуальным размерам и дизайну.',
+                'services-notice': 'Осуществляю как полный комплекс так и отдельные виды услуг из выше перечисленных',
                 
                 // Process section
                 'process-title': 'Этапы работы',
                 'process-subtitle': 'Прозрачный и понятный процесс от идеи до реализации',
-                'step-1-title': 'Знакомство и замеры',
+                'step-1-title': 'Знакомство',
                 'step-1-subtitle': 'Обсуждаем стиль, задачи и пожелания. Провожу замеры и анализ пространства.',
-                'step-2-title': 'Концепция и визуализация',
+                'step-2-title': 'Концепция',
                 'step-2-subtitle': 'Создаю планировку и 3D-визуализацию, коллаж интерьера, чтобы вы сразу увидели результат.',
-                'step-3-title': 'Реализация и подбор',
+                'step-3-title': 'Реализация',
                 'step-3-subtitle': 'Готовлю рабочую документацию, помогаю подобрать мебель, материалы и свет.',
                 'step-3-details': 'Полный комплект чертежей для строителей (план по электрике, сантехнике, демонтажу и т.д.)',
                 
@@ -2207,8 +2226,8 @@
                 'benefit-1-text': 'Слушаю и слышу каждого клиента, учитываю все пожелания',
                 'benefit-2-title': 'Индивидуальный подход',
                 'benefit-2-text': 'Каждый проект уникален и отражает личность заказчика',
-                'benefit-3-title': 'Честность',
-                'benefit-3-text': 'Прозрачная работа на всех этапах, никаких скрытых платежей',
+                'benefit-3-title': 'Внимание к деталям',
+                'benefit-3-text': 'Тщательная проработка каждой мелочи, которая создаёт гармонию в интерьере',
                 'benefit-4-title': 'Оптимизация бюджета',
                 'benefit-4-text': 'Помогу сэкономить, не теряя в качестве',
                 
@@ -2278,15 +2297,16 @@
                 
                 // Manifesto section
                 'manifesto-title': 'Для клиентов',
-                'manifesto-text-1': 'Интерьер — это не только красиво. Это про заботу, порядок и уют, который поддерживает вашу жизнь.',
-                'manifesto-text-2': 'Я помогаю превращать идеи в продуманные пространства, где важно всё: свет, материалы, ритм и детали.',
+                'manifesto-text-1': '- Всё начинается с детального обсуждения, и только после этого можно переходить к макетам и выбору материала.',
+                'manifesto-text-2': '- Чёткое описание пожеланий (фото, картинки, эскизы от руки) и открытость на всех этапах - ключевые аспекты успешного сотрудничества.',
+                'manifesto-text-3': '- Задавайте много вопросов и не бойтесь обсуждать свои идеи - это является основой успешного проекта.',
                 'manifesto-quote': '"Хороший дизайн незаметен. Он просто делает жизнь лучше."',
                 
                 // Contacts section
                 'contacts-title': 'Свяжитесь со мной',
                 'contacts-subtitle': 'Оставьте заявку, и я свяжусь с вами в ближайшее время',
                 'footer-name': 'Ольга Коренкова',
-                'footer-description': 'Дизайнер интерьеров с опытом более 8 лет',
+                'footer-description': 'Дизайнер интерьеров с опытом более 10 лет',
                 'footer-phone': '+7 (928) 430-12-70'
             };
             
@@ -2296,6 +2316,7 @@
         // Save data to localStorage
         function saveData() {
             localStorage.setItem('siteData', JSON.stringify(siteData));
+            localStorage.setItem('siteVersion', VERSION);
         }
 
         // Apply data to the site
@@ -2315,6 +2336,23 @@
             
             renderVideos();
             renderFurnitureCarousel();
+        }
+
+        // Reset all data to default
+        function resetData() {
+            if (confirm('Вы уверены, что хотите сбросить все данные к значениям по умолчанию? Все ваши изменения будут потеряны.')) {
+                localStorage.removeItem('siteData');
+                localStorage.removeItem('siteVersion');
+                setDefaultData();
+                applyDataToSite();
+                loadDataToAdminForm();
+                alert('Данные сброшены к значениям по умолчанию!');
+                
+                // Если в админ-панели, обновим форму
+                if (document.getElementById('adminModal').style.display === 'block') {
+                    loadDataToAdminForm();
+                }
+            }
         }
 
         // Render furniture carousel
