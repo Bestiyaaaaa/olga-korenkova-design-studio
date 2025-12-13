@@ -21,29 +21,20 @@
         }
 
         :root {
-            --background: 30 20% 90%; /* Каппучино */
-            --foreground: 30 10% 20%;
-            --primary: 350 30% 65%; /* Пыльная роза */
-            --primary-foreground: 355.7 100% 97.3%;
-            --secondary: 30 25% 85%;
-            --muted: 30 20% 85%;
-            --muted-foreground: 30 10% 40%;
-            --border: 30 15% 75%;
-            --accent-gradient: 350 30% 60%;
-            --shadow: rgba(0, 0, 0, 0.05);
+            --background-primary: #D6A6A0; /* Пыльно-розовый */
+            --background-secondary: #EFE3E1; /* Светлый фон */
+            --text-primary: #5B3A36; /* Тёплый тёмно-коричневый */
+            --accent-primary: #8FA69A; /* Оливково-зелёный */
+            --border-color: rgba(91, 58, 54, 0.2);
+            --shadow-color: rgba(91, 58, 54, 0.1);
         }
 
         body {
             font-family: 'Manrope', sans-serif;
-            background-color: hsl(var(--background));
-            color: hsl(var(--foreground));
+            background-color: var(--background-secondary);
+            color: var(--text-primary);
             line-height: 1.6;
             scroll-behavior: smooth;
-            background-image: 
-                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4b8a7' fill-opacity='0.2' fill-rule='evenodd'/%3E%3C/svg%3E"),
-                radial-gradient(circle at 25% 25%, rgba(211, 173, 163, 0.05) 0%, transparent 55%),
-                radial-gradient(circle at 75% 75%, rgba(211, 173, 163, 0.05) 0%, transparent 55%);
-            background-attachment: fixed;
         }
 
         .font-great-vibes {
@@ -63,15 +54,15 @@
             left: 0;
             right: 0;
             z-index: 50;
-            background-color: rgba(248, 240, 232, 0.9);
+            background-color: rgba(239, 227, 225, 0.95);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid hsl(var(--border));
+            border-bottom: 1px solid var(--border-color);
             transition: all 0.3s;
         }
 
         header.scrolled {
-            background-color: rgba(248, 240, 232, 0.95);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            background-color: rgba(239, 227, 225, 0.98);
+            box-shadow: 0 4px 6px -1px var(--shadow-color);
         }
 
         .header-content {
@@ -84,10 +75,10 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 500;
-            color: hsl(var(--foreground));
+            color: var(--accent-primary);
             text-decoration: none;
             cursor: pointer;
-            font-family: 'Manrope', sans-serif;
+            font-family: 'Great Vibes', cursive;
         }
 
         nav {
@@ -97,7 +88,7 @@
         }
 
         nav a {
-            color: hsl(var(--muted-foreground));
+            color: var(--text-primary);
             text-decoration: none;
             transition: color 0.3s;
             font-weight: 500;
@@ -105,7 +96,7 @@
         }
 
         nav a:hover {
-            color: hsl(var(--primary));
+            color: var(--accent-primary);
         }
 
         .mobile-menu-btn {
@@ -122,7 +113,7 @@
             display: flex;
             align-items: center;
             padding-top: 5rem;
-            background: linear-gradient(to bottom right, hsl(var(--background)), hsl(var(--secondary)));
+            background: linear-gradient(to bottom right, var(--background-secondary), var(--background-primary));
             position: relative;
             overflow: hidden;
         }
@@ -135,8 +126,8 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(211, 173, 163, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(211, 173, 163, 0.15) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(143, 166, 154, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(143, 166, 154, 0.15) 0%, transparent 50%);
             z-index: -1;
         }
 
@@ -152,14 +143,15 @@
             font-weight: 500;
             margin-bottom: 1.5rem;
             line-height: 1.2;
-            color: hsl(var(--primary));
+            color: var(--text-primary);
         }
 
         .hero p {
             font-size: 1.25rem;
-            color: hsl(var(--muted-foreground));
+            color: var(--text-primary);
             margin-bottom: 2rem;
             font-family: 'Manrope', sans-serif;
+            opacity: 0.9;
         }
 
         .hero-buttons {
@@ -182,31 +174,31 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-gradient)));
+            background-color: var(--accent-primary);
             color: white;
         }
 
         .btn-primary:hover {
-            opacity: 0.9;
+            background-color: #7a9085; /* Более темный оттенок для hover */
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(211, 173, 163, 0.3);
+            box-shadow: 0 8px 25px rgba(143, 166, 154, 0.3);
         }
 
         .btn-outline {
             background-color: transparent;
-            color: hsl(var(--foreground));
-            border: 2px solid hsl(var(--border));
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
         }
 
         .btn-outline:hover {
-            background-color: hsl(var(--secondary));
+            background-color: var(--background-primary);
         }
 
         .hero-image {
             border-radius: 1rem;
             overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-            border: 1px solid hsl(var(--border));
+            box-shadow: 0 25px 50px -12px var(--shadow-color);
+            border: 1px solid var(--border-color);
             position: relative;
         }
 
@@ -217,7 +209,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, transparent, rgba(211, 173, 163, 0.1));
+            background: linear-gradient(45deg, transparent, rgba(143, 166, 154, 0.1));
             z-index: 1;
             pointer-events: none;
         }
@@ -244,18 +236,19 @@
             font-weight: 500;
             margin-bottom: 1.5rem;
             text-align: center;
-            color: hsl(var(--primary));
+            color: var(--text-primary);
         }
 
         .section-subtitle {
             font-size: 1.125rem;
-            color: hsl(var(--muted-foreground));
+            color: var(--text-primary);
             text-align: center;
             margin-bottom: 3rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
             font-family: 'Manrope', sans-serif;
+            opacity: 0.9;
         }
 
         /* About Section */
@@ -269,8 +262,8 @@
         .about-image {
             border-radius: 1rem;
             overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-            border: 1px solid hsl(var(--border));
+            box-shadow: 0 25px 50px -12px var(--shadow-color);
+            border: 1px solid var(--border-color);
             position: relative;
         }
 
@@ -281,14 +274,15 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, transparent, rgba(211, 173, 163, 0.1));
+            background: linear-gradient(45deg, transparent, rgba(143, 166, 154, 0.1));
             z-index: 1;
             pointer-events: none;
         }
 
         .about-image img {
             width: 100%;
-            height: auto;
+            height: 450px;
+            object-fit: cover;
             display: block;
         }
 
@@ -296,14 +290,15 @@
             font-size: 2.5rem;
             font-weight: 500;
             margin-bottom: 1.5rem;
-            color: hsl(var(--primary));
+            color: var(--text-primary);
         }
 
         .about-content p {
-            color: hsl(var(--muted-foreground));
+            color: var(--text-primary);
             margin-bottom: 1rem;
             font-size: 1.125rem;
             font-family: 'Manrope', sans-serif;
+            opacity: 0.9;
         }
 
         /* Services Section */
@@ -317,9 +312,9 @@
         .service-card {
             padding: 2rem;
             border-radius: 1rem;
-            background-color: hsl(var(--background));
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border: 1px solid hsl(var(--border));
+            background-color: var(--background-primary);
+            box-shadow: 0 4px 6px -1px var(--shadow-color);
+            border: 1px solid var(--border-color);
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
@@ -332,26 +327,26 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(211, 173, 163, 0.05), transparent);
+            background: linear-gradient(135deg, rgba(143, 166, 154, 0.1), transparent);
             z-index: 0;
             pointer-events: none;
         }
 
         .service-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 20px 25px -5px var(--shadow-color);
         }
 
         .service-icon {
             width: 3rem;
             height: 3rem;
-            background-color: rgba(211, 173, 163, 0.15);
+            background-color: rgba(143, 166, 154, 0.2);
             border-radius: 0.75rem;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 1rem;
-            color: hsl(var(--primary));
+            color: var(--accent-primary);
             position: relative;
             z-index: 1;
         }
@@ -361,35 +356,37 @@
             font-weight: 600;
             margin-bottom: 0.75rem;
             font-family: 'Manrope', sans-serif;
-            color: hsl(var(--primary));
+            color: var(--text-primary);
             position: relative;
             z-index: 1;
         }
 
         .service-card p {
-            color: hsl(var(--muted-foreground));
+            color: var(--text-primary);
             font-family: 'Manrope', sans-serif;
             position: relative;
             z-index: 1;
+            opacity: 0.9;
         }
 
         .services-notice {
             text-align: center;
             margin-top: 3rem;
             padding: 1.5rem;
-            background-color: rgba(211, 173, 163, 0.08);
+            background-color: rgba(143, 166, 154, 0.1);
             border-radius: 1rem;
-            border: 1px solid rgba(211, 173, 163, 0.2);
+            border: 1px solid rgba(143, 166, 154, 0.2);
         }
 
         .services-notice p {
-            color: hsl(var(--muted-foreground));
+            color: var(--text-primary);
             font-family: 'Manrope', sans-serif;
             font-size: 1.125rem;
             margin: 0;
+            opacity: 0.9;
         }
 
-        /* Work Process */
+        /* Work Process - ИЗМЕНЕНО: плашки теперь светлые */
         .process-grid {
             display: grid;
             gap: 2rem;
@@ -401,10 +398,10 @@
             grid-template-columns: auto 1fr;
             gap: 2rem;
             padding: 2rem;
-            background-color: hsl(var(--background));
+            background-color: var(--background-secondary); /* Изменено на светлый фон */
             border-radius: 1rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border: 1px solid hsl(var(--border));
+            box-shadow: 0 4px 6px -1px var(--shadow-color);
+            border: 1px solid var(--border-color);
             position: relative;
             overflow: hidden;
         }
@@ -416,7 +413,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(211, 173, 163, 0.05), transparent);
+            background: linear-gradient(135deg, rgba(143, 166, 154, 0.05), transparent); /* Более светлый градиент */
             z-index: 0;
             pointer-events: none;
         }
@@ -424,7 +421,7 @@
         .step-number {
             width: 4rem;
             height: 4rem;
-            background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent-gradient)));
+            background-color: var(--accent-primary);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -443,25 +440,18 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
             font-family: 'Manrope', sans-serif;
-            color: hsl(var(--primary));
+            color: var(--text-primary);
             position: relative;
             z-index: 1;
         }
 
         .step-content p {
-            color: hsl(var(--muted-foreground));
+            color: var(--text-primary);
             margin-bottom: 0.5rem;
             font-family: 'Manrope', sans-serif;
             position: relative;
             z-index: 1;
-        }
-
-        .step-details {
-            color: hsl(var(--muted-foreground));
-            font-size: 0.875rem;
-            font-family: 'Manrope', sans-serif;
-            position: relative;
-            z-index: 1;
+            opacity: 0.9;
         }
 
         /* Benefits */
@@ -476,9 +466,9 @@
             text-align: center;
             padding: 2rem;
             border-radius: 1rem;
-            background-color: hsl(var(--background));
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            border: 1px solid hsl(var(--border));
+            background-color: var(--background-primary);
+            box-shadow: 0 4px 6px -1px var(--shadow-color);
+            border: 1px solid var(--border-color);
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
@@ -491,7 +481,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(211, 173, 163, 0.05), transparent);
+            background: linear-gradient(135deg, rgba(143, 166, 154, 0.1), transparent);
             z-index: 0;
             pointer-events: none;
         }
@@ -503,13 +493,13 @@
         .benefit-icon {
             width: 4rem;
             height: 4rem;
-            background-color: rgba(211, 173, 163, 0.15);
+            background-color: rgba(143, 166, 154, 0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1rem;
-            color: hsl(var(--primary));
+            color: var(--accent-primary);
             position: relative;
             z-index: 1;
         }
@@ -519,16 +509,17 @@
             font-weight: 600;
             margin-bottom: 0.75rem;
             font-family: 'Manrope', sans-serif;
-            color: hsl(var(--primary));
+            color: var(--text-primary);
             position: relative;
             z-index: 1;
         }
 
         .benefit-card p {
             font-family: 'Manrope', sans-serif;
-            color: hsl(var(--muted-foreground));
+            color: var(--text-primary);
             position: relative;
             z-index: 1;
+            opacity: 0.9;
         }
 
         /* Portfolio */
@@ -542,11 +533,11 @@
         .portfolio-card {
             border-radius: 1rem;
             overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 6px -1px var(--shadow-color);
             transition: all 0.3s;
             cursor: pointer;
-            background-color: hsl(var(--background));
-            border: 1px solid hsl(var(--border));
+            background-color: var(--background-primary);
+            border: 1px solid var(--border-color);
             position: relative;
         }
 
@@ -557,14 +548,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(211, 173, 163, 0.05), transparent);
+            background: linear-gradient(135deg, rgba(143, 166, 154, 0.1), transparent);
             z-index: 1;
             pointer-events: none;
         }
 
         .portfolio-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 20px 25px -5px var(--shadow-color);
         }
 
         .portfolio-card img {
@@ -586,18 +577,19 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
             font-family: 'Manrope', sans-serif;
-            color: hsl(var(--primary));
+            color: var(--text-primary);
         }
 
         .portfolio-card p {
-            color: hsl(var(--muted-foreground));
+            color: var(--text-primary);
             font-size: 0.875rem;
             font-family: 'Manrope', sans-serif;
+            opacity: 0.9;
         }
 
         /* Furniture Design Section */
         .furniture-section {
-            background: linear-gradient(to bottom right, rgba(211, 173, 163, 0.05), hsl(var(--secondary)));
+            background: linear-gradient(to bottom right, rgba(143, 166, 154, 0.1), var(--background-primary));
             position: relative;
         }
 
@@ -609,113 +601,10 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(211, 173, 163, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(211, 173, 163, 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(143, 166, 154, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(143, 166, 154, 0.15) 0%, transparent 50%);
             z-index: 0;
             pointer-events: none;
-        }
-
-        .furniture-carousel {
-            position: relative;
-            max-width: 800px;
-            margin: 3rem auto 0;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
-            border: 1px solid hsl(var(--border));
-        }
-
-        .furniture-carousel-container {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .furniture-slide {
-            min-width: 100%;
-            position: relative;
-        }
-
-        .furniture-slide img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .furniture-slide-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-            padding: 2rem;
-            color: white;
-        }
-
-        .furniture-slide-content h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-family: 'Manrope', sans-serif;
-        }
-
-        .furniture-slide-content p {
-            font-family: 'Manrope', sans-serif;
-            opacity: 0.9;
-        }
-
-        .furniture-carousel-nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 1.5rem;
-            gap: 0.5rem;
-        }
-
-        .furniture-carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: hsl(var(--border));
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .furniture-carousel-dot.active {
-            background-color: hsl(var(--primary));
-            transform: scale(1.2);
-        }
-
-        .furniture-carousel-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background-color: rgba(248, 240, 232, 0.8);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s;
-            border: none;
-            color: hsl(var(--primary));
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-
-        .furniture-carousel-arrow:hover {
-            background-color: hsl(var(--background));
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .furniture-carousel-arrow.prev {
-            left: 20px;
-        }
-
-        .furniture-carousel-arrow.next {
-            right: 20px;
         }
 
         .furniture-content {
@@ -730,14 +619,15 @@
             font-size: 2.5rem;
             font-weight: 500;
             margin-bottom: 1.5rem;
-            color: hsl(var(--primary));
+            color: var(--text-primary);
         }
 
         .furniture-content p {
-            color: hsl(var(--muted-foreground));
+            color: var(--text-primary);
             margin-bottom: 1rem;
             font-size: 1.125rem;
             font-family: 'Manrope', sans-serif;
+            opacity: 0.9;
         }
 
         .furniture-features {
@@ -758,12 +648,12 @@
         .feature-icon {
             width: 2.5rem;
             height: 2.5rem;
-            background-color: rgba(211, 173, 163, 0.15);
+            background-color: rgba(143, 166, 154, 0.2);
             border-radius: 0.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: hsl(var(--primary));
+            color: var(--accent-primary);
             flex-shrink: 0;
         }
 
@@ -776,18 +666,48 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
             font-family: 'Manrope', sans-serif;
-            color: hsl(var(--primary));
+            color: var(--text-primary);
         }
 
         .feature-content p {
-            color: hsl(var(--muted-foreground));
+            color: var(--text-primary);
             font-size: 1rem;
             margin-bottom: 0;
+            opacity: 0.9;
         }
 
-        /* Video Section */
+        /* Furniture Images Grid */
+        .furniture-images-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .furniture-image-item {
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .furniture-image-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px var(--shadow-color);
+        }
+
+        .furniture-image-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Video Section - ОБНОВЛЕНО: добавлен Rutube-плеер */
         .video-section {
-            background: linear-gradient(to bottom right, rgba(211, 173, 163, 0.05), hsl(var(--secondary)));
+            background: linear-gradient(to bottom right, rgba(143, 166, 154, 0.1), var(--background-primary));
             position: relative;
         }
 
@@ -799,114 +719,126 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(211, 173, 163, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(211, 173, 163, 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(143, 166, 154, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(143, 166, 154, 0.15) 0%, transparent 50%);
             z-index: 0;
             pointer-events: none;
         }
 
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        .video-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
             position: relative;
             z-index: 1;
         }
 
-        .video-card {
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            background-color: hsl(var(--background));
-            transition: all 0.3s;
-            border: 1px solid hsl(var(--border));
-            position: relative;
+        .video-content h2 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
         }
 
-        .video-card::before {
-            content: '';
+        .video-content p {
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+            font-family: 'Manrope', sans-serif;
+            opacity: 0.9;
+        }
+
+        /* Контейнер для Rutube-видео */
+        .rutube-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            background-color: #000;
+        }
+
+        .rutube-iframe-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* Соотношение сторон 16:9 */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .rutube-iframe-wrapper iframe {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(211, 173, 163, 0.05), transparent);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .video-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
-        }
-
-        .video-container {
-            position: relative;
-            width: 100%;
-            height: 300px;
-            background-color: hsl(var(--secondary));
-            overflow: hidden;
-        }
-
-        .video-thumbnail {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            border: none;
         }
 
-        .video-play-button {
+        .rutube-overlay {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
-            background: rgba(211, 173, 163, 0.9);
-            border-radius: 50%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            transition: all 0.3s ease;
-            border: 3px solid rgba(248, 240, 232, 0.3);
-            cursor: pointer;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
-        .video-play-button:hover {
-            background: rgba(211, 173, 163, 1);
-            transform: translate(-50%, -50%) scale(1.1);
+        .rutube-container:hover .rutube-overlay {
+            opacity: 1;
         }
 
-        .video-play-button svg {
-            width: 30px;
-            height: 30px;
-            fill: white;
-            margin-left: 4px;
-        }
-
-        .video-card-content {
-            padding: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .video-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
+        .rutube-overlay h3 {
+            font-size: 1.5rem;
             margin-bottom: 0.5rem;
             font-family: 'Manrope', sans-serif;
-            color: hsl(var(--primary));
+            color: white;
         }
 
-        .video-card p {
-            color: hsl(var(--muted-foreground));
-            font-size: 0.875rem;
+        .rutube-overlay p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
             font-family: 'Manrope', sans-serif;
+            opacity: 0.9;
+            color: white;
+        }
+
+        .video-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--accent-primary);
+            color: white;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: 'Manrope', sans-serif;
+        }
+
+        .video-button:hover {
+            background-color: #7a9085;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(143, 166, 154, 0.3);
         }
 
         /* Manifesto */
         .manifesto {
-            background: linear-gradient(to bottom right, rgba(211, 173, 163, 0.05), hsl(var(--secondary)));
+            background: linear-gradient(to bottom right, rgba(143, 166, 154, 0.1), var(--background-primary));
             position: relative;
         }
 
@@ -918,8 +850,8 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(211, 173, 163, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(211, 173, 163, 0.08) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(143, 166, 154, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(143, 166, 154, 0.15) 0%, transparent 50%);
             z-index: 0;
             pointer-events: none;
         }
@@ -932,65 +864,98 @@
             z-index: 1;
         }
 
+        .manifesto-content h2 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: var(--text-primary);
+        }
+
         .manifesto-content p {
             font-size: 1.25rem;
-            color: hsl(var(--muted-foreground));
+            color: var(--text-primary);
             margin-bottom: 1.5rem;
             font-family: 'Manrope', sans-serif;
+            opacity: 0.9;
+            text-align: left;
+            line-height: 1.8;
         }
 
         .manifesto-quote {
             font-size: 2.2rem;
             font-style: italic;
-            color: hsl(var(--primary));
+            color: var(--text-primary);
             margin-top: 2rem;
             font-weight: 500;
+            text-align: center;
         }
 
         /* Contact Form */
-        .contact-form {
-            max-width: 600px;
+        .contact-section {
+            padding: 5rem 0;
+        }
+
+        .contact-telegram {
+            max-width: 400px;
             margin: 3rem auto 0;
+            padding: 3rem 2rem;
+            background-color: var(--background-primary);
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px var(--shadow-color);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .form-group {
+        .contact-telegram::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(143, 166, 154, 0.1), transparent);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .telegram-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .telegram-icon {
+            width: 4rem;
+            height: 4rem;
+            background-color: rgba(143, 166, 154, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: var(--accent-primary);
+        }
+
+        .telegram-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-family: 'Manrope', sans-serif;
+            color: var(--text-primary);
+        }
+
+        .telegram-content p {
+            color: var(--text-primary);
             margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+            font-size: 1.125rem;
             font-family: 'Manrope', sans-serif;
-            color: hsl(var(--muted-foreground));
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid hsl(var(--border));
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            font-family: 'Manrope', sans-serif;
-            background-color: hsl(var(--background));
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: hsl(var(--primary));
-            box-shadow: 0 0 0 3px rgba(211, 173, 163, 0.1);
+            opacity: 0.9;
         }
 
         /* Footer */
         footer {
-            background-color: hsl(var(--secondary));
+            background-color: var(--background-primary);
             padding: 3rem 0;
             margin-top: 5rem;
             position: relative;
@@ -1004,8 +969,8 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(211, 173, 163, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(211, 173, 163, 0.05) 0%, transparent 50%);
+                radial-gradient(circle at 20% 80%, rgba(143, 166, 154, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(143, 166, 154, 0.1) 0%, transparent 50%);
             z-index: 0;
             pointer-events: none;
         }
@@ -1023,26 +988,27 @@
             font-size: 1.8rem;
             font-weight: 500;
             margin-bottom: 1rem;
-            color: hsl(var(--primary));
-            font-family: 'Manrope', sans-serif;
+            color: var(--text-primary);
+            font-family: 'Great Vibes', cursive;
         }
 
         footer h4 {
             font-weight: 600;
             margin-bottom: 1rem;
             font-family: 'Manrope', sans-serif;
-            color: hsl(var(--primary));
+            color: var(--text-primary);
         }
 
         footer p,
         footer a {
-            color: hsl(var(--muted-foreground));
+            color: var(--text-primary);
             text-decoration: none;
             font-family: 'Manrope', sans-serif;
+            opacity: 0.9;
         }
 
         footer a:hover {
-            color: hsl(var(--primary));
+            color: var(--accent-primary);
         }
 
         .social-links {
@@ -1054,22 +1020,22 @@
             width: 2.5rem;
             height: 2.5rem;
             border-radius: 50%;
-            background-color: rgba(211, 173, 163, 0.15);
+            background-color: rgba(143, 166, 154, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: hsl(var(--primary));
+            color: var(--accent-primary);
             transition: all 0.3s;
         }
 
         .social-link:hover {
-            background-color: hsl(var(--primary));
+            background-color: var(--accent-primary);
             color: white;
             transform: translateY(-3px);
         }
 
         .footer-bottom {
-            border-top: 1px solid hsl(var(--border));
+            border-top: 1px solid var(--border-color);
             padding-top: 2rem;
             text-align: center;
             position: relative;
@@ -1078,188 +1044,28 @@
 
         .footer-bottom p {
             font-size: 0.875rem;
+            opacity: 0.8;
         }
 
-        /* Admin Panel */
-        .admin-panel {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            z-index: 1000;
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-            font-size: 0.8rem;
-            opacity: 0.3;
-            transition: all 0.3s;
-            font-family: 'Manrope', sans-serif;
-            border: none;
-        }
-
-        .admin-panel:hover {
-            opacity: 1;
-            background: rgba(0, 0, 0, 0.8);
-        }
-
-        /* Admin Modal */
-        .admin-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 2000;
-            overflow-y: auto;
-        }
-
-        .admin-modal-content {
-            background-color: hsl(var(--background));
-            margin: 2rem auto;
-            padding: 2rem;
-            border-radius: 1rem;
-            width: 90%;
-            max-width: 1000px;
-            max-height: 90vh;
-            overflow-y: auto;
-            font-family: 'Manrope', sans-serif;
-            border: 1px solid hsl(var(--border));
-        }
-
-        .admin-tabs {
-            display: flex;
-            border-bottom: 1px solid hsl(var(--border));
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .admin-tab {
-            padding: 0.75rem 1.5rem;
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            font-weight: 500;
-            font-family: 'Manrope', sans-serif;
-            color: hsl(var(--muted-foreground));
-            transition: all 0.3s;
-        }
-
-        .admin-tab:hover {
-            color: hsl(var(--primary));
-        }
-
-        .admin-tab.active {
-            border-bottom-color: hsl(var(--primary));
-            color: hsl(var(--primary));
-        }
-
-        .admin-section {
-            display: none;
-        }
-
-        .admin-section.active {
-            display: block;
-        }
-
-        .admin-form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .admin-form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            font-family: 'Manrope', sans-serif;
-            color: hsl(var(--muted-foreground));
-        }
-
-        .admin-form-group input,
-        .admin-form-group textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid hsl(var(--border));
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            font-family: 'Manrope', sans-serif;
-            background-color: hsl(var(--background));
-        }
-
-        .admin-form-group textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .image-preview {
-            max-width: 100%;
-            max-height: 200px;
-            margin-top: 1rem;
-            border-radius: 0.5rem;
-            border: 1px solid hsl(var(--border));
-            display: none;
-        }
-
-        .image-preview.loaded {
-            display: block;
-        }
-
-        .admin-buttons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .btn-secondary {
-            background-color: hsl(var(--muted-foreground));
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background-color: hsl(30 10% 35%);
-        }
-
-        /* Password Modal */
-        .password-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 3000;
-        }
-
-        .password-modal-content {
-            background-color: hsl(var(--background));
-            margin: 15% auto;
-            padding: 2rem;
-            border-radius: 1rem;
-            width: 90%;
-            max-width: 400px;
+        /* Telegram Link Styling */
+        .telegram-channel-text {
             text-align: center;
-            border: 1px solid hsl(var(--border));
+            margin-top: 2rem;
+            font-size: 1.125rem;
+            color: var(--text-primary);
         }
 
-        .password-form-group {
-            margin-bottom: 1.5rem;
+        .telegram-channel-text a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            border-bottom: 1px dashed var(--accent-primary);
         }
 
-        .password-form-group input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid hsl(var(--border));
-            border-radius: 0.5rem;
-            font-size: 1rem;
-            background-color: hsl(var(--background));
-        }
-
-        .password-error {
-            color: hsl(var(--primary));
-            margin-top: 0.5rem;
-            display: none;
+        .telegram-channel-text a:hover {
+            color: #7a9085;
+            border-bottom-color: #7a9085;
         }
 
         /* Responsive */
@@ -1270,11 +1076,11 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background-color: hsl(var(--background));
+                background-color: var(--background-secondary);
                 flex-direction: column;
                 padding: 1rem;
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-                border: 1px solid hsl(var(--border));
+                box-shadow: 0 4px 6px -1px var(--shadow-color);
+                border: 1px solid var(--border-color);
             }
 
             nav.show {
@@ -1302,64 +1108,55 @@
                 grid-template-columns: 1fr;
             }
 
-            .admin-modal-content {
-                padding: 1rem;
-                margin: 1rem;
-                width: calc(100% - 2rem);
-            }
-
             .manifesto-quote {
                 font-size: 1.8rem;
-            }
-
-            .video-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .video-container {
-                height: 250px;
-            }
-
-            .video-play-button {
-                width: 60px;
-                height: 60px;
-            }
-
-            .video-play-button svg {
-                width: 24px;
-                height: 24px;
-            }
-
-            .admin-panel {
-                padding: 0.3rem 0.6rem;
-                font-size: 0.7rem;
-            }
-
-            .furniture-carousel-arrow {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-
-            .furniture-slide img {
-                height: 300px;
             }
 
             .furniture-features {
                 grid-template-columns: 1fr;
             }
+            
+            .furniture-images-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .furniture-image-item img {
+                height: 200px;
+            }
+
+            .about-image img {
+                height: 300px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .rutube-container {
+                margin: 1rem;
+            }
+            
+            .rutube-overlay h3 {
+                font-size: 1.2rem;
+            }
+            
+            .rutube-overlay p {
+                font-size: 0.9rem;
+            }
+            
+            .telegram-channel-text {
+                font-size: 1rem;
+                padding: 0 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Admin Panel Button -->
-    <div class="admin-panel" onclick="openPasswordModal()">Админ</div>
-
     <!-- Header -->
     <header id="header">
         <div class="container">
             <div class="header-content">
-                <a href="#hero" class="logo" data-editable="logo">OK</a>
+                <a href="#hero" class="logo">Ольга Коренкова</a>
                 <nav id="nav">
                     <a href="#about">О себе</a>
                     <a href="#services">Услуги</a>
@@ -1386,15 +1183,17 @@
         <div class="container">
             <div class="hero-grid">
                 <div>
-                    <h1 class="font-great-vibes" data-editable="hero-title">Комфорт в каждом штрихе</h1>
-                    <p data-editable="hero-subtitle">Создаю интерьеры, в которых хочется жить, отдыхать и вдохновляться каждый день.</p>
+                    <h1 class="font-great-vibes">Комфорт в каждом штрихе</h1>
+                    <p>Создаю интерьеры, в которых хочется жить, отдыхать и вдохновляться каждый день.</p>
+                    <p>Хороший интерьер – это не вопрос денег, а вопрос вкуса.</p>
+                    <p>Ваш дом – это отражение вас. Хотите, чтобы он выглядел стильно? Тогда не гонитесь за модой, а создавайте пространство, в котором вам действительно хорошо.</p>
                     <div class="hero-buttons">
                         <a href="#contacts" class="btn btn-primary">Оставить заявку</a>
                         <a href="#portfolio" class="btn btn-outline">Посмотреть портфолио</a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Светлая современная кухня с розовыми акцентами" data-editable="hero-image">
+                    <img src="https://i.postimg.cc/JzL3zg2r/cd6f42c2c4065f8eebbb5bc22b4de8a1-(2).jpg" alt="Светлая современная кухня">
                 </div>
             </div>
         </div>
@@ -1405,12 +1204,12 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-content">
-                    <h2 class="font-great-vibes" data-editable="about-title">Обо мне</h2>
-                    <p data-editable="about-text-1">Я — Ольга Коренкова, дизайнер интерьеров с более чем 10-летним опытом. Делаю дизайн-проекты, как для частных лиц, так и для коммерческих и некоммерческих организации.</p>
-                    <p data-editable="about-text-2">Мои интерьерные решения отличаются, как индивидуальность концепции, так и проработкой мебелировки под заказ, которая тонко впишется в дизайн Вашего пространства, будет эргономичной, функциональной и дополнит эксклюзивностью любой интерьер.</p>
+                    <h2 class="font-great-vibes">Обо мне</h2>
+                    <p>Я — Ольга Коренкова, дизайнер интерьеров с более чем 10-летним опытом. Делаю дизайн-проекты, как для частных лиц, так и для коммерческих и некоммерческих организации.</p>
+                    <p>Мои интерьерные решения отличаются,  как индивидуальность концепции, так и проработкой мебилировки под заказ, которая тонко впишется в дизайн Вашего пространства, будет эргономичной и функциональной и дополнит эксклюзивностью любой интерьер.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Ольга Коренкова - дизайнер интерьеров" data-editable="about-image">
+                    <img src="https://i.postimg.cc/440FPrV7/IMG_20250521_101110_360.jpg" alt="Ольга Коренкова - дизайнер интерьеров">
                 </div>
             </div>
         </div>
@@ -1419,8 +1218,8 @@
     <!-- Services Section -->
     <section id="services">
         <div class="container">
-            <h2 class="section-title font-great-vibes" data-editable="services-title">Услуги</h2>
-            <p class="section-subtitle" data-editable="services-subtitle">Полный спектр услуг по дизайну интерьера</p>
+            <h2 class="section-title font-great-vibes">Услуги</h2>
+            <p class="section-subtitle">Полный спектр услуг по дизайну интерьера</p>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
@@ -1430,8 +1229,8 @@
                             <line x1="9" y1="21" x2="9" y2="9"></line>
                         </svg>
                     </div>
-                    <h3 data-editable="service-1-title">Технический дизайн-проект</h3>
-                    <p data-editable="service-1-text">Полный дизайн-проект с визуализацией, чертежами и комплектацией. Детальная проработка всех помещений.</p>
+                    <h3>Технический дизайн-проект</h3>
+                    <p>Полный дизайн-проект с визуализацией, чертежами и комплектацией. Детальная проработка всех помещений.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -1441,8 +1240,8 @@
                             <line x1="12" y1="22.08" x2="12" y2="12"></line>
                         </svg>
                     </div>
-                    <h3 data-editable="service-2-title">3D-визуализация</h3>
-                    <p data-editable="service-2-text">Реалистичные 3D-визуализации помогут увидеть будущий интерьер до начала ремонта.</p>
+                    <h3>3D-визуализация</h3>
+                    <p>Разработка концепций и реалистичные 3D-визуализации  помогут увидеть будущий интерьер до начала ремонта.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -1451,8 +1250,8 @@
                             <line x1="7" y1="7" x2="7.01" y2="7"></line>
                         </svg>
                     </div>
-                    <h3 data-editable="service-4-title">Комплектация</h3>
-                    <p data-editable="service-4-text">Подбор всех материалов, мебели и декора. Помощь в закупке и мониторинг цен, т.е. подскажу где дешевле.</p>
+                    <h3>Комплектация</h3>
+                    <p>Подбор всех материалов, мебели и декора. Помощь в закупке и мониторинг цен, т.е. подскажу где дешевле.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -1462,42 +1261,49 @@
                             <path d="M2 10.6L12 2l10 8.6"></path>
                         </svg>
                     </div>
-                    <h3 data-editable="service-5-title">Мебелировка</h3>
-                    <p data-editable="service-5-text">Проектирование и изготовление мебели по индивидуальным размерам и дизайну.</p>
+                    <h3>Мебелировка</h3>
+                    <p>Проектирование и изготовление мебели по индивидуальным размерам и дизайну.</p>
                 </div>
             </div>
             <div class="services-notice">
-                <p data-editable="services-notice">Осуществляю как полный комплекс так и отдельные виды услуг из выше перечисленных</p>
+                <p>Осуществляю как полный комплекс так и отдельные виды услуг из выше перечисленных</p>
             </div>
         </div>
     </section>
 
-    <!-- Work Process Section -->
-    <section id="process" style="background-color: hsl(var(--secondary));">
+    <!-- Work Process Section - ИЗМЕНЕНО: плашки теперь светлые -->
+    <section id="process" style="background-color: var(--background-primary);">
         <div class="container">
-            <h2 class="section-title font-great-vibes" data-editable="process-title">Этапы работы</h2>
-            <p class="section-subtitle" data-editable="process-subtitle">Прозрачный и понятный процесс от идеи до реализации</p>
+            <h2 class="section-title font-great-vibes">Этапы работы</h2>
+            <p class="section-subtitle">Прозрачный и понятный процесс от идеи до реализации</p>
             <div class="process-grid">
                 <div class="process-step">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <h3 data-editable="step-1-title">Знакомство</h3>
-                        <p data-editable="step-1-subtitle">Обсуждаем стиль, задачи и пожелания. Провожу замеры и анализ пространства.</p>
+                        <h3>Знакомство</h3>
+                        <p>Обсуждаем стиль, задачи и пожелания. Провожу замеры и анализ пространства.</p>
                     </div>
                 </div>
                 <div class="process-step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <h3 data-editable="step-2-title">Концепция</h3>
-                        <p data-editable="step-2-subtitle">Создаю планировку и 3D-визуализацию, коллаж интерьера, чтобы вы сразу увидели результат.</p>
+                        <h3>Концепция</h3>
+                        <p>Создаю планировку и 3D-визуализацию, коллаж интерьера, чтобы вы сразу увидели результат.</p>
                     </div>
                 </div>
                 <div class="process-step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <h3 data-editable="step-3-title">Реализация</h3>
-                        <p data-editable="step-3-subtitle">Готовлю рабочую документацию, помогаю подобрать мебель, материалы и свет.</p>
-                        <p class="step-details" data-editable="step-3-details">Полный комплект чертежей для строителей (план по электрике, сантехнике, демонтажу и т.д.)</p>
+                        <h3>Реализация</h3>
+                        <p>Готовлю рабочую документацию, помогаю подобрать мебель, материалы и свет.</p>
+                        <p>Полный комплект чертежей для строителей (план по электрике, сантехнике, демонтажу и т.д.)</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Авторский надзор</h3>
+                        <p>Контроль строительных работ для точного воплощения дизайн-проекта. Гарантия качества и соответствия всем утвержденным решениям.</p>
                     </div>
                 </div>
             </div>
@@ -1507,8 +1313,8 @@
     <!-- Benefits Section -->
     <section id="benefits">
         <div class="container">
-            <h2 class="section-title font-great-vibes" data-editable="benefits-title">Почему со мной комфортно</h2>
-            <p class="section-subtitle" data-editable="benefits-subtitle">Ценности, которыми я руководствуюсь в работе</p>
+            <h2 class="section-title font-great-vibes">Почему со мной комфортно</h2>
+            <p class="section-subtitle">Ценности, которыми я руководствуюсь в работе</p>
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">
@@ -1516,8 +1322,8 @@
                             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
                         </svg>
                     </div>
-                    <h3 data-editable="benefit-1-title">Забота и внимание</h3>
-                    <p data-editable="benefit-1-text">Слушаю и слышу каждого клиента, учитываю все пожелания</p>
+                    <h3>Забота и внимание</h3>
+                    <p>Слушаю и слышу каждого клиента, учитываю все пожелания</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
@@ -1526,8 +1332,8 @@
                             <circle cx="12" cy="7" r="4"></circle>
                         </svg>
                     </div>
-                    <h3 data-editable="benefit-2-title">Индивидуальный подход</h3>
-                    <p data-editable="benefit-2-text">Каждый проект уникален и отражает личность заказчика</p>
+                    <h3>Индивидуальный подход</h3>
+                    <p>Каждый проект уникален и отражает личность заказчика</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
@@ -1539,8 +1345,8 @@
                             </svg>
                         </svg>
                     </div>
-                    <h3 data-editable="benefit-3-title">Внимание к деталям</h3>
-                    <p data-editable="benefit-3-text">Тщательная проработка каждой мелочи, которая создаёт гармонию в интерьере</p>
+                    <h3>Внимание к деталям</h3>
+                    <p>Тщательная проработка каждой мелочи, которая создаёт гармонию в интерьере</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">
@@ -1549,40 +1355,43 @@
                             <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                         </svg>
                     </div>
-                    <h3 data-editable="benefit-4-title">Оптимизация бюджета</h3>
-                    <p data-editable="benefit-4-text">Помогу сэкономить, не теряя в качестве</p>
+                    <h3>Оптимизация бюджета</h3>
+                    <p>Помогу сэкономить, не теряя в качестве</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" style="background-color: hsl(var(--secondary));">
+    <section id="portfolio" style="background-color: var(--background-primary);">
         <div class="container">
-            <h2 class="section-title font-great-vibes" data-editable="portfolio-title">Портфолио</h2>
-            <p class="section-subtitle" data-editable="portfolio-subtitle">Примеры реализованных проектов</p>
+            <h2 class="section-title font-great-vibes">Портфолио</h2>
+            <p class="section-subtitle">Примеры реализованных проектов</p>
             <div class="portfolio-grid">
                 <div class="portfolio-card">
-                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Проект 1" data-editable="portfolio-1-image">
+                    <img src="https://i.postimg.cc/rFfMZsPM/IMG_20250328_WA0019_(2).jpg" alt="Уютная гостиная">
                     <div class="portfolio-card-content">
-                        <h3 data-editable="portfolio-1-title">Современная квартира</h3>
-                        <p data-editable="portfolio-1-text">Минималистичный дизайн с акцентами</p>
+                        <h3>Уютная гостиная</h3>
+                        <p>Тёплые тона и натуральные материалы</p>
                     </div>
                 </div>
                 <div class="portfolio-card">
-                    <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Проект 2" data-editable="portfolio-2-image">
+                    <img src="https://i.postimg.cc/MK9q3HFZ/cd6f42c2c4065f8eebb.jpg" alt="Ванная комната">
                     <div class="portfolio-card-content">
-                        <h3 data-editable="portfolio-2-title">Уютная гостиная</h3>
-                        <p data-editable="portfolio-2-text">Тёплые тона и натуральные материалы</p>
+                        <h3>Ванная комната</h3>
+                        <p>Элегантность и комфорт</p>
                     </div>
                 </div>
                 <div class="portfolio-card">
-                    <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Проект 3" data-editable="portfolio-3-image">
+                    <img src="https://i.postimg.cc/HsfRYfkv/IMG_20250328_WA0023.jpg" alt="Бьюти зона">
                     <div class="portfolio-card-content">
-                        <h3 data-editable="portfolio-3-title">Стильная спальня</h3>
-                        <p data-editable="portfolio-3-text">Элегантность и комфорт</p>
+                        <h3>Бьюти зона</h3>
+                        <p>Нео классика</p>
                     </div>
                 </div>
+            </div>
+            <div class="telegram-channel-text">
+                Больше моих работ Вы можете найти в моём <a href="https://t.me/+08umeEqHCII4YzRi" target="_blank">Telegram-канале</a>
             </div>
         </div>
     </section>
@@ -1591,9 +1400,9 @@
     <section id="furniture" class="furniture-section">
         <div class="container">
             <div class="furniture-content">
-                <h2 class="font-great-vibes" data-editable="furniture-title">Дизайн мебелировки по индивидуальным размерам</h2>
-                <p data-editable="furniture-text-1">Создаю уникальную мебель, которая идеально вписывается в ваше пространство и отражает ваш стиль. Каждый проект разрабатывается с учетом ваших потребностей, предпочтений и особенностей помещения.</p>
-                <p data-editable="furniture-text-2">От концепции до реализации - полный цикл создания мебели, которая будет радовать вас долгие годы.</p>
+                <h2 class="font-great-vibes">Дизайн мебелировки по индивидуальным размерам</h2>
+                <p>Создаю уникальную мебель, которая идеально вписывается в ваше пространство и отражает ваш стиль. Каждый проект разрабатывается с учетом ваших потребностей, предпочтений и особенностей помещения.</p>
+                <p>От концепции до реализации - полный цикл создания мебели, которая будет радовать вас долгие годы.</p>
                 
                 <div class="furniture-features">
                     <div class="furniture-feature">
@@ -1603,8 +1412,8 @@
                             </svg>
                         </div>
                         <div class="feature-content">
-                            <h4 data-editable="furniture-feature-1-title">Индивидуальный подход</h4>
-                            <p data-editable="furniture-feature-1-text">Каждый проект уникален и создается специально для вас</p>
+                            <h4>Индивидуальный подход</h4>
+                            <p>Каждый проект уникален и создается специально для вас</p>
                         </div>
                     </div>
                     <div class="furniture-feature">
@@ -1613,11 +1422,11 @@
                                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                                 <line x1="3" y1="9" x2="21" y2="9"></line>
                                 <line x1="9" y1="21" x2="9" y2="9"></line>
-                            </svg>
+                        </svg>
                         </div>
                         <div class="feature-content">
-                            <h4 data-editable="furniture-feature-2-title">Точные замеры</h4>
-                            <p data-editable="furniture-feature-2-text">Учитываю все особенности вашего помещения</p>
+                            <h4>Точные замеры</h4>
+                            <p>Учитываю все особенности вашего помещения</p>
                         </div>
                     </div>
                     <div class="furniture-feature">
@@ -1631,34 +1440,65 @@
                             </svg>
                         </div>
                         <div class="feature-content">
-                            <h4 data-editable="furniture-feature-3-title">Полная документация</h4>
-                            <p data-editable="furniture-feature-3-text">Чертежи, спецификации и 3D-визуализации</p>
+                            <h4>Полная документация</h4>
+                            <p>Чертежи, спецификации и 3D-визуализации</p>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Furniture Carousel -->
-            <div class="furniture-carousel">
-                <div class="furniture-carousel-container" id="furniture-carousel">
-                    <!-- Slides will be dynamically added here -->
+                
+                <!-- Furniture Images Grid -->
+                <div class="furniture-images-grid">
+                    <div class="furniture-image-item">
+                        <img src="https://i.postimg.cc/CxcF6Nmv/ooooo.png" alt="Мебелировка проект 1">
+                    </div>
+                    <div class="furniture-image-item">
+                        <img src="https://i.postimg.cc/RVQCw9ts/IMG_20251208_102058_290.png" alt="Мебелировка проект 2">
+                    </div>
+                    <div class="furniture-image-item">
+                        <img src="https://i.postimg.cc/85JPv6dv/IMG_20250824_WA0002.jpg" alt="Мебелировка проект 3">
+                    </div>
                 </div>
-                <button class="furniture-carousel-arrow prev" onclick="prevFurnitureSlide()">❮</button>
-                <button class="furniture-carousel-arrow next" onclick="nextFurnitureSlide()">❯</button>
-            </div>
-            <div class="furniture-carousel-nav" id="furniture-nav">
-                <!-- Navigation dots will be dynamically added here -->
+                
+                <div class="telegram-channel-text">
+                    Больше моих работ Вы можете найти в моём <a href="https://t.me/+08umeEqHCII4YzRi" target="_blank">Telegram-канале</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Video Section -->
+    <!-- Video Section - ОБНОВЛЕНО: добавлено видео с Rutube -->
     <section id="video" class="video-section">
         <div class="container">
-            <h2 class="section-title font-great-vibes" data-editable="video-title">Видео проектов</h2>
-            <p class="section-subtitle" data-editable="video-subtitle">Оживите интерьер - посмотрите видеообзоры реализованных проектов</p>
-            <div class="video-grid" id="video-grid">
-                <!-- Videos will be dynamically added here -->
+            <div class="video-content">
+                <h2 class="font-great-vibes">Видео проектов</h2>
+                <p>Оживите интерьер - посмотрите видеообзоры реализованных проектов</p>
+                
+                <!-- Контейнер для Rutube-видео -->
+                <div class="rutube-container">
+                    <div class="rutube-iframe-wrapper">
+                        <!-- Ваше видео с Rutube -->
+                        <iframe 
+                            src="https://rutube.ru/play/embed/aae6c9a682f6cfb3a973682408559e0d/"
+                            allow="clipboard-write; autoplay; encrypted-media; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                        <div class="rutube-overlay">
+                            <h3>Обзор проекта дизайна интерьера</h3>
+                            <p>Посмотрите, как создавался этот уникальный интерьер</p>
+                            <a href="https://rutube.ru/shorts/aae6c9a682f6cfb3a973682408559e0d/" target="_blank" class="video-button">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                </svg>
+                                Смотреть на Rutube
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 2rem; font-size: 1rem; color: var(--text-primary); opacity: 0.8;">
+                    Больше видео вы можете найти в моём 
+                    <a href="https://t.me/+08umeEqHCII4YzRi" target="_blank" style="color: var(--accent-primary); text-decoration: underline;">Telegram-канале</a>
+                </p>
             </div>
         </div>
     </section>
@@ -1667,35 +1507,36 @@
     <section class="manifesto">
         <div class="container">
             <div class="manifesto-content">
-                <h2 class="section-title font-great-vibes" data-editable="manifesto-title">Для клиентов</h2>
-                <p data-editable="manifesto-text-1">- Всё начинается с детального обсуждения, и только после этого можно переходить к макетам и выбору материала.</p>
-                <p data-editable="manifesto-text-2">- Чёткое описание пожеланий (фото, картинки, эскизы от руки) и открытость на всех этапах - ключевые аспекты успешного сотрудничества.</p>
-                <p data-editable="manifesto-text-3">- Задавайте много вопросов и не бойтесь обсуждать свои идеи - это является основой успешного проекта.</p>
-                <p class="manifesto-quote font-great-vibes" data-editable="manifesto-quote">"Хороший дизайн незаметен. Он просто делает жизнь лучше."</p>
+                <h2 class="font-great-vibes">Для клиентов</h2>
+                <p>- Всё начинается с детального обсуждения, и только после этого можно переходить к макетам и выбору материала.</p>
+                <p>- Чёткое описание пожеланий (фото, картинки, эскизы от руки) и открытость на всех этапах - ключевые аспекты успешного сотрудничества.</p>
+                <p>- Задавайте много вопросов и не бойтесь обсуждать свои идеи - это является основой успешного проекта.</p>
+                <p class="manifesto-quote font-great-vibes">"Хороший дизайн незаметен. Он просто делает жизнь лучше."</p>
             </div>
         </div>
     </section>
 
-    <!-- Contact Form Section -->
-    <section id="contacts">
+    <!-- Contact Section -->
+    <section id="contacts" class="contact-section">
         <div class="container">
-            <h2 class="section-title font-great-vibes" data-editable="contacts-title">Свяжитесь со мной</h2>
-            <p class="section-subtitle" data-editable="contacts-subtitle">Оставьте заявку, и я свяжусь с вами в ближайшее время</p>
-            <form class="contact-form" onsubmit="handleSubmit(event)">
-                <div class="form-group">
-                    <label for="name">Ваше имя</label>
-                    <input type="text" id="name" name="name" required>
+            <h2 class="section-title font-great-vibes">Свяжитесь со мной</h2>
+            <p class="section-subtitle">Напишите мне в Telegram для быстрой связи</p>
+            
+            <div class="contact-telegram">
+                <div class="telegram-content">
+                    <div class="telegram-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                    </div>
+                    <h3>Telegram</h3>
+                    <p>Нажмите на кнопку ниже, чтобы написать мне в Telegram</p>
+                    <a href="https://t.me/Dizain_OK_Original" target="_blank" class="btn btn-primary" style="width: 100%;">
+                        Написать в Telegram
+                    </a>
                 </div>
-                <div class="form-group">
-                    <label for="phone">Телефон</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Расскажите о вашем проекте</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить заявку</button>
-            </form>
+            </div>
         </div>
     </section>
 
@@ -1704,12 +1545,12 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <h3 class="font-great-vibes" data-editable="footer-name">Ольга Коренкова</h3>
-                    <p data-editable="footer-description">Дизайнер интерьеров с опытом более 10 лет</p>
+                    <h3 class="font-great-vibes">Ольга Коренкова</h3>
+                    <p>Дизайнер интерьеров с опытом более 10 лет</p>
                 </div>
                 <div>
                     <h4>Контакты</h4>
-                    <p><a href="tel:+79284301270" data-editable="footer-phone">+7 (928) 430-12-70</a></p>
+                    <p><a href="tel:+79284301270">+7 (928) 430-12-70</a></p>
                 </div>
                 <div>
                     <h4>Социальные сети</h4>
@@ -1729,1049 +1570,7 @@
         </div>
     </footer>
 
-    <!-- Password Modal -->
-    <div id="passwordModal" class="password-modal">
-        <div class="password-modal-content">
-            <h2 class="font-great-vibes">Вход в админ-панель</h2>
-            <p>Введите пароль для доступа:</p>
-            <div class="password-form-group">
-                <input type="password" id="adminPassword" placeholder="Пароль">
-                <div class="password-error" id="passwordError">Неверный пароль!</div>
-            </div>
-            <div class="admin-buttons">
-                <button class="btn btn-primary" onclick="checkPassword()">Войти</button>
-                <button class="btn btn-outline" onclick="closePasswordModal()">Отмена</button>
-                <button class="btn btn-secondary" onclick="resetData()" style="margin-top: 1rem;">Сбросить все данные (для тестирования)</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Admin Panel Modal -->
-    <div id="adminModal" class="admin-modal">
-        <div class="admin-modal-content">
-            <h2 class="font-great-vibes">Админ-панель</h2>
-            
-            <div class="admin-tabs">
-                <div class="admin-tab active" onclick="switchTab('hero-tab')">Главная</div>
-                <div class="admin-tab" onclick="switchTab('about-tab')">О себе</div>
-                <div class="admin-tab" onclick="switchTab('services-tab')">Услуги</div>
-                <div class="admin-tab" onclick="switchTab('process-tab')">Этапы работы</div>
-                <div class="admin-tab" onclick="switchTab('benefits-tab')">Преимущества</div>
-                <div class="admin-tab" onclick="switchTab('portfolio-tab')">Портфолио</div>
-                <div class="admin-tab" onclick="switchTab('furniture-tab')">Мебелировка</div>
-                <div class="admin-tab" onclick="switchTab('video-tab')">Видео</div>
-                <div class="admin-tab" onclick="switchTab('manifesto-tab')">Манифест</div>
-                <div class="admin-tab" onclick="switchTab('contacts-tab')">Контакты</div>
-            </div>
-
-            <!-- Hero Tab -->
-            <div id="hero-tab" class="admin-section active">
-                <div class="admin-form-group">
-                    <label for="hero-title">Заголовок</label>
-                    <input type="text" id="hero-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="hero-subtitle">Подзаголовок</label>
-                    <textarea id="hero-subtitle"></textarea>
-                </div>
-                <div class="admin-form-group">
-                    <label for="hero-image">Изображение (URL)</label>
-                    <input type="text" id="hero-image" placeholder="https://example.com/image.jpg">
-                    <img id="hero-image-preview" class="image-preview" src="" alt="Превью">
-                    <button class="btn btn-outline" onclick="testImage('hero-image')" style="margin-top: 0.5rem;">Проверить изображение</button>
-                </div>
-            </div>
-
-            <!-- About Tab -->
-            <div id="about-tab" class="admin-section">
-                <div class="admin-form-group">
-                    <label for="about-title">Заголовок</label>
-                    <input type="text" id="about-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="about-text-1">Текст 1</label>
-                    <textarea id="about-text-1"></textarea>
-                </div>
-                <div class="admin-form-group">
-                    <label for="about-text-2">Текст 2</label>
-                    <textarea id="about-text-2"></textarea>
-                </div>
-                <div class="admin-form-group">
-                    <label for="about-image">Изображение (URL)</label>
-                    <input type="text" id="about-image" placeholder="https://example.com/image.jpg">
-                    <img id="about-image-preview" class="image-preview" src="" alt="Превью">
-                    <button class="btn btn-outline" onclick="testImage('about-image')" style="margin-top: 0.5rem;">Проверить изображение</button>
-                </div>
-            </div>
-
-            <!-- Services Tab -->
-            <div id="services-tab" class="admin-section">
-                <div class="admin-form-group">
-                    <label for="services-title">Заголовок секции</label>
-                    <input type="text" id="services-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="services-subtitle">Подзаголовок секции</label>
-                    <textarea id="services-subtitle"></textarea>
-                </div>
-                
-                <h3>Услуга 1</h3>
-                <div class="admin-form-group">
-                    <label for="service-1-title">Название услуги</label>
-                    <input type="text" id="service-1-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="service-1-text">Описание услуги</label>
-                    <textarea id="service-1-text"></textarea>
-                </div>
-
-                <h3>Услуга 2</h3>
-                <div class="admin-form-group">
-                    <label for="service-2-title">Название услуги</label>
-                    <input type="text" id="service-2-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="service-2-text">Описание услуги</label>
-                    <textarea id="service-2-text"></textarea>
-                </div>
-
-                <h3>Услуга 3</h3>
-                <div class="admin-form-group">
-                    <label for="service-4-title">Название услуги</label>
-                    <input type="text" id="service-4-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="service-4-text">Описание услуги</label>
-                    <textarea id="service-4-text"></textarea>
-                </div>
-
-                <h3>Услуга 4</h3>
-                <div class="admin-form-group">
-                    <label for="service-5-title">Название услуги</label>
-                    <input type="text" id="service-5-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="service-5-text">Описание услуги</label>
-                    <textarea id="service-5-text"></textarea>
-                </div>
-
-                <h3>Примечание</h3>
-                <div class="admin-form-group">
-                    <label for="services-notice">Дополнительный текст после услуг</label>
-                    <textarea id="services-notice"></textarea>
-                </div>
-            </div>
-
-            <!-- Process Tab -->
-            <div id="process-tab" class="admin-section">
-                <div class="admin-form-group">
-                    <label for="process-title">Заголовок секции</label>
-                    <input type="text" id="process-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="process-subtitle">Подзаголовок секции</label>
-                    <textarea id="process-subtitle"></textarea>
-                </div>
-                
-                <h3>Этап 1</h3>
-                <div class="admin-form-group">
-                    <label for="step-1-title">Название этапа</label>
-                    <input type="text" id="step-1-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="step-1-subtitle">Описание этапа</label>
-                    <input type="text" id="step-1-subtitle">
-                </div>
-
-                <h3>Этап 2</h3>
-                <div class="admin-form-group">
-                    <label for="step-2-title">Название этапа</label>
-                    <input type="text" id="step-2-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="step-2-subtitle">Описание этапа</label>
-                    <input type="text" id="step-2-subtitle">
-                </div>
-
-                <h3>Этап 3</h3>
-                <div class="admin-form-group">
-                    <label for="step-3-title">Название этапа</label>
-                    <input type="text" id="step-3-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="step-3-subtitle">Описание этапа</label>
-                    <input type="text" id="step-3-subtitle">
-                </div>
-                <div class="admin-form-group">
-                    <label for="step-3-details">Детали этапа</label>
-                    <textarea id="step-3-details"></textarea>
-                </div>
-            </div>
-
-            <!-- Benefits Tab -->
-            <div id="benefits-tab" class="admin-section">
-                <div class="admin-form-group">
-                    <label for="benefits-title">Заголовок секции</label>
-                    <input type="text" id="benefits-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="benefits-subtitle">Подзаголовок секции</label>
-                    <textarea id="benefits-subtitle"></textarea>
-                </div>
-                
-                <h3>Преимущество 1</h3>
-                <div class="admin-form-group">
-                    <label for="benefit-1-title">Название преимущества</label>
-                    <input type="text" id="benefit-1-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="benefit-1-text">Описание преимущества</label>
-                    <textarea id="benefit-1-text"></textarea>
-                </div>
-
-                <h3>Преимущество 2</h3>
-                <div class="admin-form-group">
-                    <label for="benefit-2-title">Название преимущества</label>
-                    <input type="text" id="benefit-2-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="benefit-2-text">Описание преимущества</label>
-                    <textarea id="benefit-2-text"></textarea>
-                </div>
-
-                <h3>Преимущество 3</h3>
-                <div class="admin-form-group">
-                    <label for="benefit-3-title">Название преимущества</label>
-                    <input type="text" id="benefit-3-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="benefit-3-text">Описание преимущества</label>
-                    <textarea id="benefit-3-text"></textarea>
-                </div>
-
-                <h3>Преимущество 4</h3>
-                <div class="admin-form-group">
-                    <label for="benefit-4-title">Название преимущества</label>
-                    <input type="text" id="benefit-4-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="benefit-4-text">Описание преимущества</label>
-                    <textarea id="benefit-4-text"></textarea>
-                </div>
-            </div>
-
-            <!-- Portfolio Tab -->
-            <div id="portfolio-tab" class="admin-section">
-                <div class="admin-form-group">
-                    <label for="portfolio-title">Заголовок секции</label>
-                    <input type="text" id="portfolio-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="portfolio-subtitle">Подзаголовок секции</label>
-                    <textarea id="portfolio-subtitle"></textarea>
-                </div>
-                
-                <h3>Проект 1</h3>
-                <div class="admin-form-group">
-                    <label for="portfolio-1-title">Название проекта</label>
-                    <input type="text" id="portfolio-1-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="portfolio-1-text">Описание проекта</label>
-                    <textarea id="portfolio-1-text"></textarea>
-                </div>
-                <div class="admin-form-group">
-                    <label for="portfolio-1-image">Изображение (URL)</label>
-                    <input type="text" id="portfolio-1-image" placeholder="https://example.com/image.jpg">
-                    <img id="portfolio-1-image-preview" class="image-preview" src="" alt="Превью">
-                    <button class="btn btn-outline" onclick="testImage('portfolio-1-image')" style="margin-top: 0.5rem;">Проверить изображение</button>
-                </div>
-
-                <h3>Проект 2</h3>
-                <div class="admin-form-group">
-                    <label for="portfolio-2-title">Название проекта</label>
-                    <input type="text" id="portfolio-2-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="portfolio-2-text">Описание проекта</label>
-                    <textarea id="portfolio-2-text"></textarea>
-                </div>
-                <div class="admin-form-group">
-                    <label for="portfolio-2-image">Изображение (URL)</label>
-                    <input type="text" id="portfolio-2-image" placeholder="https://example.com/image.jpg">
-                    <img id="portfolio-2-image-preview" class="image-preview" src="" alt="Превью">
-                    <button class="btn btn-outline" onclick="testImage('portfolio-2-image')" style="margin-top: 0.5rem;">Проверить изображение</button>
-                </div>
-
-                <h3>Проект 3</h3>
-                <div class="admin-form-group">
-                    <label for="portfolio-3-title">Название проекта</label>
-                    <input type="text" id="portfolio-3-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="portfolio-3-text">Описание проекта</label>
-                    <textarea id="portfolio-3-text"></textarea>
-                </div>
-                <div class="admin-form-group">
-                    <label for="portfolio-3-image">Изображение (URL)</label>
-                    <input type="text" id="portfolio-3-image" placeholder="https://example.com/image.jpg">
-                    <img id="portfolio-3-image-preview" class="image-preview" src="" alt="Превью">
-                    <button class="btn btn-outline" onclick="testImage('portfolio-3-image')" style="margin-top: 0.5rem;">Проверить изображение</button>
-                </div>
-            </div>
-
-            <!-- Furniture Tab -->
-            <div id="furniture-tab" class="admin-section">
-                <div class="admin-form-group">
-                    <label for="furniture-title">Заголовок секции</label>
-                    <input type="text" id="furniture-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="furniture-text-1">Текст 1</label>
-                    <textarea id="furniture-text-1"></textarea>
-                </div>
-                <div class="admin-form-group">
-                    <label for="furniture-text-2">Текст 2</label>
-                    <textarea id="furniture-text-2"></textarea>
-                </div>
-                
-                <h3>Особенность 1</h3>
-                <div class="admin-form-group">
-                    <label for="furniture-feature-1-title">Название особенности</label>
-                    <input type="text" id="furniture-feature-1-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="furniture-feature-1-text">Описание особенности</label>
-                    <textarea id="furniture-feature-1-text"></textarea>
-                </div>
-
-                <h3>Особенность 2</h3>
-                <div class="admin-form-group">
-                    <label for="furniture-feature-2-title">Название особенности</label>
-                    <input type="text" id="furniture-feature-2-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="furniture-feature-2-text">Описание особенности</label>
-                    <textarea id="furniture-feature-2-text"></textarea>
-                </div>
-
-                <h3>Особенность 3</h3>
-                <div class="admin-form-group">
-                    <label for="furniture-feature-3-title">Название особенности</label>
-                    <input type="text" id="furniture-feature-3-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="furniture-feature-3-text">Описание особенности</label>
-                    <textarea id="furniture-feature-3-text"></textarea>
-                </div>
-
-                <h3>Карусель мебелировки</h3>
-                <div id="furniture-carousel-items">
-                    <!-- Furniture carousel items will be added here dynamically -->
-                </div>
-                <button type="button" class="btn btn-primary" onclick="addFurnitureCarouselItem()" style="margin-top: 1rem;">+ Добавить слайд в карусель</button>
-            </div>
-
-            <!-- Video Tab -->
-            <div id="video-tab" class="admin-section">
-                <div class="admin-form-group">
-                    <label for="video-title">Заголовок секции</label>
-                    <input type="text" id="video-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="video-subtitle">Подзаголовок секции</label>
-                    <textarea id="video-subtitle"></textarea>
-                </div>
-                
-                <h3>Управление видео</h3>
-                <div id="video-items-container">
-                    <!-- Video items will be added here dynamically -->
-                </div>
-                <button type="button" class="btn btn-primary" onclick="addVideoItem()" style="margin-top: 1rem;">+ Добавить видео</button>
-            </div>
-
-            <!-- Manifesto Tab -->
-            <div id="manifesto-tab" class="admin-section">
-                <div class="admin-form-group">
-                    <label for="manifesto-title">Заголовок секции</label>
-                    <input type="text" id="manifesto-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="manifesto-text-1">Текст 1</label>
-                    <textarea id="manifesto-text-1"></textarea>
-                </div>
-                <div class="admin-form-group">
-                    <label for="manifesto-text-2">Текст 2</label>
-                    <textarea id="manifesto-text-2"></textarea>
-                </div>
-                <div class="admin-form-group">
-                    <label for="manifesto-text-3">Текст 3</label>
-                    <textarea id="manifesto-text-3"></textarea>
-                </div>
-                <div class="admin-form-group">
-                    <label for="manifesto-quote">Цитата</label>
-                    <textarea id="manifesto-quote"></textarea>
-                </div>
-            </div>
-
-            <!-- Contacts Tab -->
-            <div id="contacts-tab" class="admin-section">
-                <div class="admin-form-group">
-                    <label for="contacts-title">Заголовок секции</label>
-                    <input type="text" id="contacts-title">
-                </div>
-                <div class="admin-form-group">
-                    <label for="contacts-subtitle">Подзаголовок секции</label>
-                    <textarea id="contacts-subtitle"></textarea>
-                </div>
-                <div class="admin-form-group">
-                    <label for="footer-name">Имя в футере</label>
-                    <input type="text" id="footer-name">
-                </div>
-                <div class="admin-form-group">
-                    <label for="footer-description">Описание в футере</label>
-                    <textarea id="footer-description"></textarea>
-                </div>
-                <div class="admin-form-group">
-                    <label for="footer-phone">Телефон</label>
-                    <input type="text" id="footer-phone">
-                </div>
-            </div>
-
-            <div class="admin-buttons">
-                <button class="btn btn-primary" onclick="saveChanges()">Сохранить изменения</button>
-                <button class="btn btn-outline" onclick="closeAdminPanel()">Закрыть</button>
-                <button class="btn btn-secondary" onclick="resetData()">Сбросить к значениям по умолчанию</button>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Data storage and management
-        let siteData = {};
-        const ADMIN_PASSWORD = "admin123";
-        const VERSION = "2.0"; // Новая версия данных
-        
-        // Carousel state
-        let currentFurnitureSlide = 0;
-
-        // Initialize data with version check
-        function initializeData() {
-            const savedData = localStorage.getItem('siteData');
-            const savedVersion = localStorage.getItem('siteVersion');
-            
-            // Если нет сохраненных данных или старая версия - устанавливаем данные по умолчанию
-            if (!savedData || savedVersion !== VERSION) {
-                console.log('Устанавливаем данные по умолчанию. Версия:', VERSION);
-                setDefaultData();
-            } else {
-                try {
-                    siteData = JSON.parse(savedData);
-                } catch (e) {
-                    console.error('Ошибка загрузки данных:', e);
-                    setDefaultData();
-                }
-            }
-            
-            applyDataToSite();
-            loadDataToAdminForm();
-            renderVideos();
-            renderFurnitureCarousel();
-            
-            // Initialize header scroll effect
-            initHeaderScroll();
-        }
-
-        function setDefaultData() {
-            siteData = {
-                // Hero section
-                'hero-title': 'Комфорт в каждом штрихе',
-                'hero-subtitle': 'Создаю интерьеры, в которых хочется жить, отдыхать и вдохновляться каждый день.',
-                'hero-image': 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-                
-                // About section
-                'about-title': 'Обо мне',
-                'about-text-1': 'Я — Ольга Коренкова, дизайнер интерьеров с более чем 10-летним опытом. Делаю дизайн-проекты, как для частных лиц, так и для коммерческих и некоммерческих организации.',
-                'about-text-2': 'Мои интерьерные решения отличаются, как индивидуальность концепции, так и проработкой мебелировки под заказ, которая тонко впишется в дизайн Вашего пространства, будет эргономичной, функциональной и дополнит эксклюзивностью любой интерьер.',
-                'about-image': 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-                
-                // Services section
-                'services-title': 'Услуги',
-                'services-subtitle': 'Полный спектр услуг по дизайну интерьера',
-                'service-1-title': 'Технический дизайн-проект',
-                'service-1-text': 'Полный дизайн-проект с визуализацией, чертежами и комплектацией. Детальная проработка всех помещений.',
-                'service-2-title': '3D-визуализация',
-                'service-2-text': 'Реалистичные 3D-визуализации помогут увидеть будущий интерьер до начала ремонта.',
-                'service-4-title': 'Комплектация',
-                'service-4-text': 'Подбор всех материалов, мебели и декора. Помощь в закупке и мониторинг цен, т.е. подскажу где дешевле.',
-                'service-5-title': 'Мебелировка',
-                'service-5-text': 'Проектирование и изготовление мебели по индивидуальным размерам и дизайну.',
-                'services-notice': 'Осуществляю как полный комплекс так и отдельные виды услуг из выше перечисленных',
-                
-                // Process section
-                'process-title': 'Этапы работы',
-                'process-subtitle': 'Прозрачный и понятный процесс от идеи до реализации',
-                'step-1-title': 'Знакомство',
-                'step-1-subtitle': 'Обсуждаем стиль, задачи и пожелания. Провожу замеры и анализ пространства.',
-                'step-2-title': 'Концепция',
-                'step-2-subtitle': 'Создаю планировку и 3D-визуализацию, коллаж интерьера, чтобы вы сразу увидели результат.',
-                'step-3-title': 'Реализация',
-                'step-3-subtitle': 'Готовлю рабочую документацию, помогаю подобрать мебель, материалы и свет.',
-                'step-3-details': 'Полный комплект чертежей для строителей (план по электрике, сантехнике, демонтажу и т.д.)',
-                
-                // Benefits section
-                'benefits-title': 'Почему со мной комфортно',
-                'benefits-subtitle': 'Ценности, которыми я руководствуюсь в работе',
-                'benefit-1-title': 'Забота и внимание',
-                'benefit-1-text': 'Слушаю и слышу каждого клиента, учитываю все пожелания',
-                'benefit-2-title': 'Индивидуальный подход',
-                'benefit-2-text': 'Каждый проект уникален и отражает личность заказчика',
-                'benefit-3-title': 'Внимание к деталям',
-                'benefit-3-text': 'Тщательная проработка каждой мелочи, которая создаёт гармонию в интерьере',
-                'benefit-4-title': 'Оптимизация бюджета',
-                'benefit-4-text': 'Помогу сэкономить, не теряя в качестве',
-                
-                // Portfolio section
-                'portfolio-title': 'Портфолио',
-                'portfolio-subtitle': 'Примеры реализованных проектов',
-                'portfolio-1-title': 'Современная квартира',
-                'portfolio-1-text': 'Минималистичный дизайн с акцентами',
-                'portfolio-1-image': 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-                'portfolio-2-title': 'Уютная гостиная',
-                'portfolio-2-text': 'Тёплые тона и натуральные материалы',
-                'portfolio-2-image': 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-                'portfolio-3-title': 'Стильная спальня',
-                'portfolio-3-text': 'Элегантность и комфорт',
-                'portfolio-3-image': 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-                
-                // Furniture section
-                'furniture-title': 'Дизайн мебелировки по индивидуальным размерам',
-                'furniture-text-1': 'Создаю уникальную мебель, которая идеально вписывается в ваше пространство и отражает ваш стиль. Каждый проект разрабатывается с учетом ваших потребностей, предпочтений и особенностей помещения.',
-                'furniture-text-2': 'От концепции до реализации - полный цикл создания мебели, которая будет радовать вас долгие годы.',
-                'furniture-feature-1-title': 'Индивидуальный подход',
-                'furniture-feature-1-text': 'Каждый проект уникален и создается специально для вас',
-                'furniture-feature-2-title': 'Точные замеры',
-                'furniture-feature-2-text': 'Учитываю все особенности вашего помещения',
-                'furniture-feature-3-title': 'Полная документация',
-                'furniture-feature-3-text': 'Чертежи, спецификации и 3D-визуализации',
-                'furniture-carousel': [
-                    {
-                        id: 1,
-                        title: 'Индивидуальный шкаф-купе',
-                        description: 'Шкаф-купе с зеркальными дверями и внутренней подсветкой',
-                        image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
-                    },
-                    {
-                        id: 2,
-                        title: 'Кухонный гарнитур',
-                        description: 'Эргономичная кухня с островом и барной стойкой',
-                        image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
-                    },
-                    {
-                        id: 3,
-                        title: 'Гостиная стенка',
-                        description: 'Многофункциональная стенка с системой хранения',
-                        image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
-                    }
-                ],
-                
-                // Video section
-                'video-title': 'Видео проектов',
-                'video-subtitle': 'Оживите интерьер - посмотрите видеообзоры реализованных проектов',
-                'videos': [
-                    {
-                        id: 1,
-                        title: 'Обзор современной квартиры',
-                        description: 'Полный обзор реализованного проекта с комментариями дизайнера',
-                        thumbnail: 'https://images.unsplash.com/photo-1618220179428-22790b461013?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-                        url: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
-                    },
-                    {
-                        id: 2,
-                        title: 'Процесс создания интерьера',
-                        description: 'От концепции до реализации - весь путь проекта',
-                        thumbnail: 'https://images.unsplash.com/photo-1615873968403-89e068629265?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-                        url: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
-                    }
-                ],
-                
-                // Manifesto section
-                'manifesto-title': 'Для клиентов',
-                'manifesto-text-1': '- Всё начинается с детального обсуждения, и только после этого можно переходить к макетам и выбору материала.',
-                'manifesto-text-2': '- Чёткое описание пожеланий (фото, картинки, эскизы от руки) и открытость на всех этапах - ключевые аспекты успешного сотрудничества.',
-                'manifesto-text-3': '- Задавайте много вопросов и не бойтесь обсуждать свои идеи - это является основой успешного проекта.',
-                'manifesto-quote': '"Хороший дизайн незаметен. Он просто делает жизнь лучше."',
-                
-                // Contacts section
-                'contacts-title': 'Свяжитесь со мной',
-                'contacts-subtitle': 'Оставьте заявку, и я свяжусь с вами в ближайшее время',
-                'footer-name': 'Ольга Коренкова',
-                'footer-description': 'Дизайнер интерьеров с опытом более 10 лет',
-                'footer-phone': '+7 (928) 430-12-70'
-            };
-            
-            saveData();
-        }
-
-        // Save data to localStorage
-        function saveData() {
-            localStorage.setItem('siteData', JSON.stringify(siteData));
-            localStorage.setItem('siteVersion', VERSION);
-        }
-
-        // Apply data to the site
-        function applyDataToSite() {
-            const editableElements = document.querySelectorAll('[data-editable]');
-            
-            editableElements.forEach(element => {
-                const key = element.getAttribute('data-editable');
-                if (siteData[key] !== undefined) {
-                    if (element.tagName === 'IMG') {
-                        element.src = siteData[key];
-                    } else {
-                        element.textContent = siteData[key];
-                    }
-                }
-            });
-            
-            renderVideos();
-            renderFurnitureCarousel();
-        }
-
-        // Reset all data to default
-        function resetData() {
-            if (confirm('Вы уверены, что хотите сбросить все данные к значениям по умолчанию? Все ваши изменения будут потеряны.')) {
-                localStorage.removeItem('siteData');
-                localStorage.removeItem('siteVersion');
-                setDefaultData();
-                applyDataToSite();
-                loadDataToAdminForm();
-                alert('Данные сброшены к значениям по умолчанию!');
-                
-                // Если в админ-панели, обновим форму
-                if (document.getElementById('adminModal').style.display === 'block') {
-                    loadDataToAdminForm();
-                }
-            }
-        }
-
-        // Render furniture carousel
-        function renderFurnitureCarousel() {
-            const carousel = document.getElementById('furniture-carousel');
-            const nav = document.getElementById('furniture-nav');
-            
-            if (!carousel || !nav || !siteData['furniture-carousel']) return;
-            
-            carousel.innerHTML = '';
-            nav.innerHTML = '';
-            
-            siteData['furniture-carousel'].forEach((item, index) => {
-                // Create slide
-                const slide = document.createElement('div');
-                slide.className = 'furniture-slide';
-                slide.innerHTML = `
-                    <img src="${item.image}" alt="${item.title}">
-                    <div class="furniture-slide-content">
-                        <h3>${item.title}</h3>
-                        <p>${item.description}</p>
-                    </div>
-                `;
-                carousel.appendChild(slide);
-                
-                // Create navigation dot
-                const dot = document.createElement('div');
-                dot.className = `furniture-carousel-dot ${index === 0 ? 'active' : ''}`;
-                dot.onclick = () => goToFurnitureSlide(index);
-                nav.appendChild(dot);
-            });
-            
-            // Reset to first slide
-            currentFurnitureSlide = 0;
-            updateFurnitureCarousel();
-        }
-
-        // Update furniture carousel position
-        function updateFurnitureCarousel() {
-            const carousel = document.getElementById('furniture-carousel');
-            if (!carousel) return;
-            
-            carousel.style.transform = `translateX(-${currentFurnitureSlide * 100}%)`;
-            
-            // Update active dot
-            const dots = document.querySelectorAll('#furniture-nav .furniture-carousel-dot');
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentFurnitureSlide);
-            });
-        }
-
-        // Furniture carousel navigation
-        function nextFurnitureSlide() {
-            if (!siteData['furniture-carousel']) return;
-            currentFurnitureSlide = (currentFurnitureSlide + 1) % siteData['furniture-carousel'].length;
-            updateFurnitureCarousel();
-        }
-
-        function prevFurnitureSlide() {
-            if (!siteData['furniture-carousel']) return;
-            currentFurnitureSlide = (currentFurnitureSlide - 1 + siteData['furniture-carousel'].length) % siteData['furniture-carousel'].length;
-            updateFurnitureCarousel();
-        }
-
-        function goToFurnitureSlide(index) {
-            currentFurnitureSlide = index;
-            updateFurnitureCarousel();
-        }
-
-        // Render videos
-        function renderVideos() {
-            const videoGrid = document.getElementById('video-grid');
-            if (!videoGrid || !siteData['videos']) return;
-            
-            videoGrid.innerHTML = '';
-            
-            siteData['videos'].forEach(video => {
-                const videoCard = document.createElement('div');
-                videoCard.className = 'video-card';
-                videoCard.innerHTML = `
-                    <div class="video-container">
-                        <img src="${video.thumbnail}" alt="${video.title}" class="video-thumbnail">
-                        <div class="video-play-button" onclick="openVideoModal('${video.url}')">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="video-card-content">
-                        <h3>${video.title}</h3>
-                        <p>${video.description}</p>
-                    </div>
-                `;
-                videoGrid.appendChild(videoCard);
-            });
-        }
-
-        // Open video modal
-        function openVideoModal(videoUrl) {
-            // Create modal for video playback
-            const modal = document.createElement('div');
-            modal.style.position = 'fixed';
-            modal.style.top = '0';
-            modal.style.left = '0';
-            modal.style.width = '100%';
-            modal.style.height = '100%';
-            modal.style.backgroundColor = 'rgba(0,0,0,0.8)';
-            modal.style.zIndex = '9999';
-            modal.style.display = 'flex';
-            modal.style.justifyContent = 'center';
-            modal.style.alignItems = 'center';
-            modal.innerHTML = `
-                <div style="position: relative; width: 80%; max-width: 800px;">
-                    <button onclick="this.parentElement.parentElement.remove()" style="position: absolute; top: -40px; right: 0; background: none; border: none; color: white; font-size: 24px; cursor: pointer;">×</button>
-                    <iframe width="100%" height="400" src="${videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            `;
-            document.body.appendChild(modal);
-            
-            // Close modal on background click
-            modal.onclick = function(e) {
-                if (e.target === modal) {
-                    modal.remove();
-                }
-            };
-        }
-
-        // Load data into admin form
-        function loadDataToAdminForm() {
-            for (const key in siteData) {
-                const input = document.getElementById(key);
-                if (input) {
-                    input.value = siteData[key] || '';
-                    
-                    // Handle image previews
-                    if (key.includes('image') && !key.includes('carousel')) {
-                        const previewId = key + '-preview';
-                        const preview = document.getElementById(previewId);
-                        if (preview && siteData[key]) {
-                            preview.src = siteData[key];
-                            preview.classList.add('loaded');
-                        }
-                    }
-                }
-            }
-            
-            // Load videos
-            renderVideoItems();
-            // Load furniture carousel items
-            renderFurnitureCarouselItems();
-        }
-
-        // Render furniture carousel items in admin panel
-        function renderFurnitureCarouselItems() {
-            const container = document.getElementById('furniture-carousel-items');
-            if (!container) return;
-            
-            container.innerHTML = '';
-            
-            if (!siteData['furniture-carousel'] || siteData['furniture-carousel'].length === 0) {
-                container.innerHTML = '<p>Нет добавленных слайдов</p>';
-                return;
-            }
-            
-            siteData['furniture-carousel'].forEach((item, index) => {
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'admin-form-group';
-                itemDiv.style.border = '1px solid hsl(var(--border))';
-                itemDiv.style.padding = '1rem';
-                itemDiv.style.borderRadius = '0.5rem';
-                itemDiv.style.marginBottom = '1rem';
-                itemDiv.innerHTML = `
-                    <h4>Слайд ${index + 1}</h4>
-                    <div class="admin-form-group">
-                        <label for="furniture-carousel-${item.id}-title">Название</label>
-                        <input type="text" id="furniture-carousel-${item.id}-title" value="${item.title}">
-                    </div>
-                    <div class="admin-form-group">
-                        <label for="furniture-carousel-${item.id}-description">Описание</label>
-                        <textarea id="furniture-carousel-${item.id}-description">${item.description}</textarea>
-                    </div>
-                    <div class="admin-form-group">
-                        <label for="furniture-carousel-${item.id}-image">Изображение (URL)</label>
-                        <input type="text" id="furniture-carousel-${item.id}-image" value="${item.image}">
-                        <img id="furniture-carousel-${item.id}-image-preview" class="image-preview" src="${item.image}" alt="Превью">
-                        <button class="btn btn-outline" onclick="testImage('furniture-carousel-${item.id}-image')" style="margin-top: 0.5rem;">Проверить изображение</button>
-                    </div>
-                    <button type="button" class="btn btn-secondary" onclick="removeFurnitureCarouselItem(${item.id})">Удалить слайд</button>
-                `;
-                container.appendChild(itemDiv);
-                
-                // Set preview
-                const preview = document.getElementById(`furniture-carousel-${item.id}-image-preview`);
-                if (preview && item.image) {
-                    preview.src = item.image;
-                    preview.classList.add('loaded');
-                }
-            });
-        }
-
-        // Add new furniture carousel item
-        function addFurnitureCarouselItem() {
-            if (!siteData['furniture-carousel']) {
-                siteData['furniture-carousel'] = [];
-            }
-            
-            const newId = siteData['furniture-carousel'].length > 0 ? 
-                Math.max(...siteData['furniture-carousel'].map(item => item.id)) + 1 : 1;
-            const newItem = {
-                id: newId,
-                title: 'Новый слайд',
-                description: 'Описание слайда',
-                image: ''
-            };
-            
-            siteData['furniture-carousel'].push(newItem);
-            renderFurnitureCarouselItems();
-        }
-
-        // Remove furniture carousel item
-        function removeFurnitureCarouselItem(itemId) {
-            if (confirm('Вы уверены, что хотите удалить этот слайд?')) {
-                siteData['furniture-carousel'] = siteData['furniture-carousel'].filter(item => item.id !== itemId);
-                renderFurnitureCarouselItems();
-            }
-        }
-
-        // Render video items in admin panel
-        function renderVideoItems() {
-            const container = document.getElementById('video-items-container');
-            if (!container) return;
-            
-            container.innerHTML = '';
-            
-            if (!siteData['videos'] || siteData['videos'].length === 0) {
-                container.innerHTML = '<p>Нет добавленных видео</p>';
-                return;
-            }
-            
-            siteData['videos'].forEach((video, index) => {
-                const videoDiv = document.createElement('div');
-                videoDiv.className = 'admin-form-group';
-                videoDiv.style.border = '1px solid hsl(var(--border))';
-                videoDiv.style.padding = '1rem';
-                videoDiv.style.borderRadius = '0.5rem';
-                videoDiv.style.marginBottom = '1rem';
-                videoDiv.innerHTML = `
-                    <h4>Видео ${index + 1}</h4>
-                    <div class="admin-form-group">
-                        <label for="video-${video.id}-title">Название</label>
-                        <input type="text" id="video-${video.id}-title" value="${video.title}">
-                    </div>
-                    <div class="admin-form-group">
-                        <label for="video-${video.id}-description">Описание</label>
-                        <textarea id="video-${video.id}-description">${video.description}</textarea>
-                    </div>
-                    <div class="admin-form-group">
-                        <label for="video-${video.id}-thumbnail">Превью (URL)</label>
-                        <input type="text" id="video-${video.id}-thumbnail" value="${video.thumbnail}">
-                        <img id="video-${video.id}-thumbnail-preview" class="image-preview" src="${video.thumbnail}" alt="Превью">
-                        <button class="btn btn-outline" onclick="testImage('video-${video.id}-thumbnail')" style="margin-top: 0.5rem;">Проверить изображение</button>
-                    </div>
-                    <div class="admin-form-group">
-                        <label for="video-${video.id}-url">URL видео (YouTube embed)</label>
-                        <input type="text" id="video-${video.id}-url" value="${video.url}">
-                    </div>
-                    <button type="button" class="btn btn-secondary" onclick="removeVideoItem(${video.id})">Удалить видео</button>
-                `;
-                container.appendChild(videoDiv);
-                
-                // Set preview
-                const preview = document.getElementById(`video-${video.id}-thumbnail-preview`);
-                if (preview && video.thumbnail) {
-                    preview.src = video.thumbnail;
-                    preview.classList.add('loaded');
-                }
-            });
-        }
-
-        // Add new video item
-        function addVideoItem() {
-            if (!siteData['videos']) {
-                siteData['videos'] = [];
-            }
-            
-            const newId = siteData['videos'].length > 0 ? 
-                Math.max(...siteData['videos'].map(video => video.id)) + 1 : 1;
-            const newVideo = {
-                id: newId,
-                title: 'Новое видео',
-                description: 'Описание видео',
-                thumbnail: '',
-                url: 'https://www.youtube.com/embed/'
-            };
-            
-            siteData['videos'].push(newVideo);
-            renderVideoItems();
-        }
-
-        // Remove video item
-        function removeVideoItem(videoId) {
-            if (confirm('Вы уверены, что хотите удалить это видео?')) {
-                siteData['videos'] = siteData['videos'].filter(video => video.id !== videoId);
-                renderVideoItems();
-            }
-        }
-
-        // Test image URL
-        function testImage(inputId) {
-            const input = document.getElementById(inputId);
-            const previewId = inputId + '-preview';
-            const preview = document.getElementById(previewId);
-            
-            if (!input || !preview) return;
-            
-            const testImage = new Image();
-            testImage.onload = function() {
-                preview.src = input.value;
-                preview.classList.add('loaded');
-            };
-            testImage.onerror = function() {
-                alert('Не удалось загрузить изображение. Проверьте URL.');
-            };
-            testImage.src = input.value;
-        }
-
-        // Save changes from admin panel
-        function saveChanges() {
-            // Save regular fields
-            for (const key in siteData) {
-                const input = document.getElementById(key);
-                if (input && !key.includes('carousel') && !key.includes('videos')) {
-                    siteData[key] = input.value;
-                }
-            }
-            
-            // Save furniture carousel items
-            if (siteData['furniture-carousel']) {
-                siteData['furniture-carousel'].forEach(item => {
-                    const titleInput = document.getElementById(`furniture-carousel-${item.id}-title`);
-                    const descInput = document.getElementById(`furniture-carousel-${item.id}-description`);
-                    const imageInput = document.getElementById(`furniture-carousel-${item.id}-image`);
-                    
-                    if (titleInput) item.title = titleInput.value;
-                    if (descInput) item.description = descInput.value;
-                    if (imageInput) item.image = imageInput.value;
-                });
-            }
-            
-            // Save video items
-            if (siteData['videos']) {
-                siteData['videos'].forEach(video => {
-                    const titleInput = document.getElementById(`video-${video.id}-title`);
-                    const descInput = document.getElementById(`video-${video.id}-description`);
-                    const thumbInput = document.getElementById(`video-${video.id}-thumbnail`);
-                    const urlInput = document.getElementById(`video-${video.id}-url`);
-                    
-                    if (titleInput) video.title = titleInput.value;
-                    if (descInput) video.description = descInput.value;
-                    if (thumbInput) video.thumbnail = thumbInput.value;
-                    if (urlInput) video.url = urlInput.value;
-                });
-            }
-            
-            saveData();
-            applyDataToSite();
-            alert('Изменения сохранены!');
-        }
-
-        // Admin panel functions
-        function openPasswordModal() {
-            document.getElementById('passwordModal').style.display = 'block';
-        }
-
-        function closePasswordModal() {
-            document.getElementById('passwordModal').style.display = 'none';
-            document.getElementById('adminPassword').value = '';
-            document.getElementById('passwordError').style.display = 'none';
-        }
-
-        function checkPassword() {
-            const password = document.getElementById('adminPassword').value;
-            const errorElement = document.getElementById('passwordError');
-            
-            if (password === ADMIN_PASSWORD) {
-                closePasswordModal();
-                openAdminPanel();
-            } else {
-                errorElement.style.display = 'block';
-            }
-        }
-
-        function openAdminPanel() {
-            document.getElementById('adminModal').style.display = 'block';
-            loadDataToAdminForm();
-        }
-
-        function closeAdminPanel() {
-            document.getElementById('adminModal').style.display = 'none';
-        }
-
-        function switchTab(tabId) {
-            // Hide all tabs
-            document.querySelectorAll('.admin-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Remove active class from all tabs
-            document.querySelectorAll('.admin-tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Show selected tab
-            document.getElementById(tabId).classList.add('active');
-            
-            // Add active class to clicked tab
-            event.target.classList.add('active');
-        }
-
         // Header scroll effect
         function initHeaderScroll() {
             const header = document.getElementById('header');
@@ -2811,7 +1610,7 @@
 
         // Initialize the site
         document.addEventListener('DOMContentLoaded', function() {
-            initializeData();
+            initHeaderScroll();
             
             // Add click handlers for smooth scrolling
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -2836,6 +1635,18 @@
                     }
                 });
             });
+            
+            // Rutube iframe click handler
+            const rutubeIframe = document.querySelector('.rutube-iframe-wrapper iframe');
+            const rutubeOverlay = document.querySelector('.rutube-overlay');
+            
+            if (rutubeOverlay) {
+                rutubeOverlay.addEventListener('click', function() {
+                    // При клике на оверлей можно добавить дополнительные действия
+                    // Например, автоматическое воспроизведение видео
+                    console.log('Rutube video overlay clicked');
+                });
+            }
         });
     </script>
 </body>
